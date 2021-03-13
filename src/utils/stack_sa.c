@@ -1,17 +1,17 @@
 #include "stacklib.h"
 
-void	stack_sa(t_stack *a)
+void	swap_sa(t_list *a)
 {
-	t_stack *temp;
+	t_list *temp;
 
 	temp = a;
 	a = temp;
 	return;
 }
 
-void	stack_sb(t_stack *a)
+void	stack_sb(t_list *a)
 {
-	t_stack *temp;
+	t_list *temp;
 
 	temp = a;
 	a = temp;

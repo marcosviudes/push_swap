@@ -5,7 +5,9 @@
 
 CHECKER		= checker
 SWAP		= push_swap
-STACKLIB	= stcklib.a
+TEST		= test
+STACKLIB	= ./src/utils/libstack.a
+
 LIBFT_DIR	= ./libft
 LIBFT		= ./libft/libft.a
 
@@ -25,6 +27,7 @@ SWAP_DIR	= $(SRC_DIR)/push_swap/
 
 CHECKER_SRC	=	main.c
 SWAP_SRC	=	main.c
+TEST_SRC	=	$(SRC_DIR)/test/main.c
 
 CHECKER_F 	= $(addprefix $(CHECKER_DIR), $(CHECKER_SRC))
 SWAP_F		= $(addprefix $(SWAP_DIR), $(SWAP_SRC))
@@ -32,7 +35,7 @@ SWAP_F		= $(addprefix $(SWAP_DIR), $(SWAP_SRC))
 CHECKER_O	= $(CHECKER_F:%.c=%.o)
 SWAP_O		= $(SWAP_F:%.c=%.o)
 OBJS 		= $(CHECKER_O) $(SWAP_O)
-INCLUDES 	= -Lft
+INCLUDES 	= -Lft -Lstack
 
 #####################################
 ### RULES
@@ -40,27 +43,36 @@ INCLUDES 	= -Lft
 
 all: $(SWAP) $(CHECKER)
 
+$(STACKLIB):
+	@make -C src/utils
 $(LIBFT):
-	@make -C libft
-$(CHECKER): $(CHECKER_O) $(LIBFT) 
+	@make -C libft bonus
+$(CHECKER): $(CHECKER_O) $(LIBFT) $(STACKLIB)
 	$(CC) $(CFLAGS) $(INCLUDES) $(CHECKER_O) -o $(CHECKER)
 
-$(SWAP): $(SWAP_O) $(LIBFT) 
+$(SWAP): $(SWAP_O) $(LIBFT) $(STACKLIB) 
 	$(CC) $(CFLAGS) $(INCLUDES) $(SWAP_O) -o $(SWAP)
 
+$(TEST): $(STACKLIB) $(LIBFT)
+	$(CC) $(DFLAGS) $(TEST_SRC) $(INCLUDES) $(LIBFT) -o $(TEST)
 normi: fclean
 	norminette src/*
 	norminette incldues/*
 	norminette libft/*.c libft/*.h
 
 clean:
-	@make -C $(LIBFT_DIR) clean
+	make -C $(LIBFT_DIR) clean
+	make -C src/utils clean
 	$(RM) $(NAME) $(OBJS)
 
 fclean: clean
 	@make -C $(LIBFT_DIR) fclean
-	$(RM) $(CHECKER) $(SWAP)
+	@make -C src/utils fclean
+	$(RM) $(CHECKER) $(SWAP) $(TEST)
 re: fclean all
+retest:
+	$(RM) test
+	make test
 
 debug: fclean
 

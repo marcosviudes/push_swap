@@ -4,15 +4,16 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+#include "../../libft/libft.h"
 
-#   ifndef STACK
-    typedef struct		s_stack
-    {
-	    int             content;
-    	struct s_stack	*next;
-    }					t_stack;
-#   endif
+/*
+*typedef struct		s_list
+*{
+*    void*             content;
+*   	struct s_list	*next;
+*}					t_list;
+*/
 
 void ft_swap(int* a, int* b);
-void	stack_sa(t_stack *a);
+void	stack_sa(t_list *a);
 #endif

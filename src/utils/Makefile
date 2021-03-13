@@ -1,4 +1,4 @@
-NAME	= stacklib.a
+NAME	= libstack.a
 
 SRCS	= 	stack_sa.c\
 			ft_swap.c
