@@ -14,6 +14,7 @@
 *}					t_list;
 */
 
-void ft_swap(int* a, int* b);
+int      ft_lstswap(t_list *lst_a, t_list *lst_b);
+void ft_lstnswap(t_list *node, int pos1, int pos2);
 void	stack_sa(t_list *a);
 #endif
