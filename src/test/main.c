@@ -83,6 +83,10 @@ int		main(int argc, char **argv)
 	ft_lstprint(a, b);
 	ft_lstfswap(&a);
 	ft_lstprint(a, b);
+	ft_lstdelfirst(&b);
+	ft_lstprint(a, b);
+	ft_lstrot(&b);
+	ft_lstprint(a, b);
 
 	i = 0;
 	while(a != NULL)

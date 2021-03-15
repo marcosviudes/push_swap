@@ -19,4 +19,7 @@ void	ft_lstnswap(t_list *node, int pos1, int pos2);
 int		ft_lstpush(t_list **to_list, t_list **list);
 void	*ft_lstpop(t_list **list);
 int		ft_lstfswap(t_list **list);
+void	ft_lstdelfirst(t_list **list);
+void	ft_lstrot(t_list **list);
+void	ft_lstrevrot(t_list **list);
 #endif
