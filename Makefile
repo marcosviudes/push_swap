@@ -54,7 +54,7 @@ $(SWAP): $(SWAP_O) $(LIBFT) $(STACKLIB)
 	$(CC) $(CFLAGS) $(INCLUDES) $(SWAP_O) -o $(SWAP)
 
 $(TEST): $(STACKLIB) $(LIBFT)
-	$(CC) $(DFLAGS) $(TEST_SRC) $(INCLUDES) $(LIBFT) -o $(TEST)
+	$(CC) $(DFLAGS) $(TEST_SRC) $(INCLUDES) $(STACKLIB) $(LIBFT) -o $(TEST)
 normi: fclean
 	norminette src/*
 	norminette incldues/*
@@ -72,6 +72,7 @@ fclean: clean
 re: fclean all
 retest:
 	$(RM) test
+	@make -C src/utils re
 	make test
 
 debug: fclean

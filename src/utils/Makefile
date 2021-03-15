@@ -4,7 +4,7 @@ SRCS	= 	ft_lstpush.c\
 			ft_swap.c
 OBJS	= ${SRCS:.c=.o}
 CC		= gcc 
-CFLAGS	= #-Wall -Werror -Wextra -g3
+CFLAGS	= -g #-Wall -Werror -Wextra -g3
 
 
 ${NAME}:	${OBJS}
