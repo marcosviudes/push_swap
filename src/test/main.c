@@ -30,11 +30,15 @@ void	ft_lstprint(t_list	*a, t_list *b)
 {
 	int	content_a;
 	int	content_b;
+	int	i;
 
+	i = 0;
 	printf("_________________");
 	printf("\n");
 	while(a != NULL || b != NULL)
 	{
+		content_a = 0;
+		content_b = 0;
 		if(a){
 			content_a = getcontent(a);
 			a = a->next;
@@ -43,7 +47,8 @@ void	ft_lstprint(t_list	*a, t_list *b)
 			content_b = getcontent(b);
 			b = b->next;
 		}
-		printf("%d\t|\t%d\n", content_a, content_a);
+		i++;
+		printf("%i-> %d\t|\t%d\n",i, content_a, content_b);
 	}
 
 }
@@ -65,17 +70,27 @@ int		main(int argc, char **argv)
 	i = 1;
 	if(argc != 1){
 		while(i < argc){
-				content[i]= 1;//ft_atoi(argv[i]);
-				content2[i]= 0;//(ft_atoi(argv[i]) + 10 );
+				content[i]= ft_atoi(argv[i]);
+				content2[i]= (ft_atoi(argv[i])) + 10 ;
 				temp = ft_lstnew(&content[i]);
 				temp2 = ft_lstnew(&content2[i]);
 				ft_lstadd_back(&a, temp);
 				ft_lstadd_back(&b, temp2);
-				printf("%d\t|\t%d\n", getcontent(temp), getcontent(temp2));
+				printf("%i-> %d\t|\t%d\n",i,getcontent(temp), getcontent(temp2));
 			i++;
 		}
 	ft_lstpush(&a, &b);
 	ft_lstprint(a, b);
+	ft_lstfswap(&a);
+	ft_lstprint(a, b);
+
+	i = 0;
+	while(a != NULL)
+	{
+		printf("%i-> %d  ",i, ft_ptoint(a->content));
+		a = a->next;
+		i++;
+	}
 	/*i = 1;
 	while(i < argc){
 		p = ft_ptoint(a->content);

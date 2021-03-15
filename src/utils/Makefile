@@ -1,7 +1,8 @@
 NAME	= libstack.a
 
 SRCS	= 	ft_lstpush.c\
-			ft_swap.c
+			ft_swap.c\
+			ft_lstpop.c
 OBJS	= ${SRCS:.c=.o}
 CC		= gcc 
 CFLAGS	= -g #-Wall -Werror -Wextra -g3

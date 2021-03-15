@@ -1,5 +1,21 @@
 #include "stacklib.h"
 
+
+int		ft_lstfswap(t_list **list)
+{
+{
+	t_list	*temp;
+
+	if (*list && (*list)->next)
+	{
+		temp = (*list)->next;
+		(*list)->next = temp->next;
+		temp->next = *list;
+		*list = temp;
+	}
+}
+	return(0);
+}
 int		ft_lstswap(t_list *a, t_list *b)
 {
 	t_list *temp;
