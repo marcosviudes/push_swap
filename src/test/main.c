@@ -86,6 +86,7 @@ int		main(int argc, char **argv)
 	ft_lstdelfirst(&b);
 	ft_lstprint(a, b);
 	ft_lstrot(&b);
+	ft_lstrevrot(&a);
 	ft_lstprint(a, b);
 
 	i = 0;
@@ -95,13 +96,6 @@ int		main(int argc, char **argv)
 		a = a->next;
 		i++;
 	}
-	/*i = 1;
-	while(i < argc){
-		p = ft_ptoint(a->content);
-		q = ft_ptoint(b->content);
-		printf("%d\t|\t%d\n", p, q);
-		i++;
-	}*/
 	}
 	return(0);
 }

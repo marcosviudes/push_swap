@@ -35,7 +35,7 @@ SWAP_F		= $(addprefix $(SWAP_DIR), $(SWAP_SRC))
 CHECKER_O	= $(CHECKER_F:%.c=%.o)
 SWAP_O		= $(SWAP_F:%.c=%.o)
 OBJS 		= $(CHECKER_O) $(SWAP_O)
-INCLUDES 	= -Lft -Lstack
+INCLUDES 	= $(LIBFT) $(STACKLIB)
 
 #####################################
 ### RULES

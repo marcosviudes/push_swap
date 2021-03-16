@@ -8,6 +8,7 @@ void ft_lstrot(t_list **list)
 	ft_lstadd_back(list, temp);
 	ft_lstdelfirst(list);
 }
+
 void ft_lstdelfirst(t_list **list)
 {
 	t_list *temp;

@@ -21,5 +21,7 @@ void	*ft_lstpop(t_list **list);
 int		ft_lstfswap(t_list **list);
 void	ft_lstdelfirst(t_list **list);
 void	ft_lstrot(t_list **list);
-void	ft_lstrevrot(t_list **list);
+int    	ft_lstrevrot(t_list **list);
+void    ft_lstdellast(t_list **list);
+int     ft_isnum(char *string);
 #endif
