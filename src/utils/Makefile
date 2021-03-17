@@ -6,7 +6,8 @@ SRCS	= 	ft_lstpush.c\
 			ft_lstrot.c\
 			ft_lstrevrot.c\
 			ft_lstdellast.c\
-			ft_isnum.c
+			ft_isnum.c\
+			ft_strcdup.c
 OBJS	= ${SRCS:.c=.o}
 CC		= gcc 
 CFLAGS	= -g #-Wall -Werror -Wextra -g3

@@ -24,4 +24,5 @@ void	ft_lstrot(t_list **list);
 int    	ft_lstrevrot(t_list **list);
 void    ft_lstdellast(t_list **list);
 int     ft_isnum(char *string);
+char	*ft_strcdup(const char *src, int c);
 #endif

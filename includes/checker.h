@@ -1,5 +1,5 @@
 #ifndef CHECKER_H
-# define CHEKCER_H
+# define CHECKER_H
 
 # include <unistd.h>
 # include <unistd.h>

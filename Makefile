@@ -25,7 +25,8 @@ SRC_DIR		= src
 CHECKER_DIR	= $(SRC_DIR)/checker/
 SWAP_DIR	= $(SRC_DIR)/push_swap/
 
-CHECKER_SRC	=	main.c
+CHECKER_SRC	=	main.c\
+				get_next_line.c
 SWAP_SRC	=	main.c
 TEST_SRC	=	$(SRC_DIR)/test/main.c
 
