@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/18 13:21:15 by mviudes           #+#    #+#             */
+/*   Updated: 2021/03/18 13:21:15 by mviudes          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/checker.h"
 #include "../../includes/get_next_line.h"
 #include "../../libft/libft.h"
@@ -30,8 +42,8 @@ int		valid_instruction(char *line)
 }
 void	exit_error()
 {
-	printf(KO);
-	exit(1);
+	printf(ERROR);
+	exit(EXIT_FAILURE);
 }
 
 void	print_array(int *array, int size)
@@ -67,7 +79,7 @@ void	ft_lstprint(t_list	*a, t_list *b)
 	int	i;
 
 	i = 0;
-	printf("_________________");
+	printf("\n_________________");
 	printf("\n");
 	while(a != NULL || b != NULL)
 	{
@@ -127,10 +139,32 @@ t_list		*get_args(int argc, char **argv)
 		i++;
 	}
 //	if(!check_duplicate(&value[1], argc))
-//		return(NULL);;
+//		return(NULL);
 	return(ret);
 }
+int		is_sorted(t_list *lst)
+{
+	int		number;
+	int		last_num;
 
+	last_num = INT64_MIN;
+	while(lst != NULL)
+	{
+		number = ptoint(lst->content);
+		if(number >= last_num)
+			return(0);
+		last_num = number;
+		lst = lst->next;
+	}
+	return(1);
+}
+int		check_all(t_all *all)
+{
+	if(!is_sorted)
+
+
+
+}
 void	free_all(t_all *all)
 {
 	return;
@@ -141,17 +175,29 @@ int     main(int argc, char **argv)
 	int		content_a;
 	void	*head;
 	char	*buff;
+	int		i;
 
+	int		fd;
+	fd = open("./test.txt",O_RDONLY);
 	head = &(all).a;
+	all.init_len = argc - 1;
+	i = 0;
 	if(argc > 1)
 	{
 		all.a = get_args(argc, argv);
 		if(!all.a)
 			exit_error();
-		while(get_next_line(0, &buff))
+		while(get_next_line(fd, &buff) > EOF)//get_next_line(STDIN_FILENO, &buff))
 		{
-			printf("%s", buff);
+			printf("%s  ", buff);
+			if(!valid_instruction(buff))
+				exit_error();
+			
 		}
+		if(!check_all(&all))
+		{
+			pritnf(KO);
+		return(0);
 	}
 	ft_lstprint(all.a, all.b);
 	return (0);
