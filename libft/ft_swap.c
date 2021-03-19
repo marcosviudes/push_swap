@@ -1,4 +1,4 @@
-#include "stacklib.h"
+#include "libft.h"
 
 
 int		ft_lstfswap(t_list **list)
@@ -28,12 +28,12 @@ int		ft_lstswap(t_list *a, t_list *b)
 }
 void ft_lstnswap(t_list *lst, int first, int second)
 {
-    t_list *temp;
-	t_list *temp2;
 
-	void	*p;
 	int		i;
-
+	first = 0;
+	first++;
+	second = 0;
+	second++;
 	i = 0;
 	while(lst != NULL)
 	{

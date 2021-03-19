@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/utils.h"
+# include <utils.h>
 
 int		ft_dorra(t_list **a, int *ret_instruciton)
 {

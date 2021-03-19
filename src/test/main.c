@@ -1,4 +1,4 @@
-#include "../utils/stacklib.h"
+#include "../utils/libft.h"
 #include "../../libft/libft.h"
 
 int ft_ptoint(int *p)

@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/checker.h"
-#include "../../includes/utils.h"
-#include "../../includes/get_next_line.h"
-#include "../../libft/libft.h"
+#include <checker.h>
+#include <get_next_line.h>
+#include <libft.h>
 
 int		valid_instruction(char *line)
 {
@@ -147,7 +146,7 @@ int		is_sorted(t_list *lst)
 	int		number;
 	int		last_num;
 
-	last_num = INT32_MIN;
+	//last_num = INT32_MIN;
 	while(lst != NULL)
 	{
 		number = ft_ptoint(lst->content);

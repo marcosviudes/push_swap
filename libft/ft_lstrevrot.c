@@ -1,4 +1,4 @@
-#include "stacklib.h"
+#include "libft.h"
 
 int	ft_lstrevrot(t_list **list)
 {

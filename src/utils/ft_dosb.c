@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/utils.h"
+# include <utils.h>
 
 int		ft_dosb(t_list **b, int	*ret_instruciton)
 {

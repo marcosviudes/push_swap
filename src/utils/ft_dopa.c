@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/utils.h"
+# include <utils.h>
+# include <libft.h>
 
 int		ft_dopa(t_list **a, t_list **b, int	*ret_instruciton)
 {
