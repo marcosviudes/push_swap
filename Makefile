@@ -47,7 +47,7 @@ all: $(SWAP) $(CHECKER)
 $(STACKLIB):
 	@make -C src/utils
 $(LIBFT):
-	@make -C libft bonus
+	@make -C libft
 $(CHECKER): $(CHECKER_O) $(LIBFT) $(STACKLIB)
 	$(CC) $(CFLAGS) $(INCLUDES) $(CHECKER_O) -o $(CHECKER)
 

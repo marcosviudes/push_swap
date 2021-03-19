@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dosa.c                                          :+:      :+:    :+:   */
+/*   ft_dosb.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/18 13:51:16 by mviudes           #+#    #+#             */
-/*   Updated: 2021/03/19 14:12:04 by mviudes          ###   ########.fr       */
+/*   Created: 2021/03/19 12:50:19 by mviudes           #+#    #+#             */
+/*   Updated: 2021/03/19 14:42:56 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../../includes/utils.h"
 
-int		ft_dosa(t_list **a, int	*ret_instruciton)
+int		ft_dosb(t_list **b, int	*ret_instruciton)
 {
-	if(!ft_lstfswap(a))
+	if(!ft_lstfswap(b))
 		return(0);
 	if(ret_instruciton)
-		*ret_instruciton = KEY_SA;
+		*ret_instruciton = KEY_SB;
 	return(1);
 }

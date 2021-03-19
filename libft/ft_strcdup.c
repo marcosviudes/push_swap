@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dosa.c                                          :+:      :+:    :+:   */
+/*   ft_strcdup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/18 13:51:16 by mviudes           #+#    #+#             */
-/*   Updated: 2021/03/19 14:12:04 by mviudes          ###   ########.fr       */
+/*   Created: 2021/03/17 19:47:56 by mviudes           #+#    #+#             */
+/*   Updated: 2021/03/19 12:22:41 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/utils.h"
+#include "libft.h"
 
-int		ft_dosa(t_list **a, int	*ret_instruciton)
+char			*ft_strcdup(const char *src, int c)
 {
-	if(!ft_lstfswap(a))
-		return(0);
-	if(ret_instruciton)
-		*ret_instruciton = KEY_SA;
-	return(1);
+	int			i;
+	int			j;
+	char		*s2;
+
+	i = 0;
+	j = 0;
+	while (src[i] && src[i] != c)
+		i++;
+	s2 = malloc((i + 1) * sizeof(char));
+	if (!(s2))
+		return (0);
+	while (j < i)
+	{
+		s2[j] = src[j];
+		j++;
+	}
+	s2[j] = '\0';
+	return (s2);
 }

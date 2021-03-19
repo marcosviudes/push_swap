@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 19:42:25 by mviudes           #+#    #+#             */
-/*   Updated: 2021/03/17 09:17:24 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/03/19 12:18:42 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,6 @@ void				ft_lstclear(t_list **lst, void(*del)(void*));
 void				ft_lstiter(t_list *lst, void (*f)(void*));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
+int					ft_isnum(char *string);
+char				*ft_strcdup(const char *src, int c);
 #endif
