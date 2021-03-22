@@ -13,7 +13,7 @@ LIBFT		= ./libft/libft.a
 
 
 CC 			= gcc  
-CFLAGS		=  $(INCLUDES) #-Wall -Wextra -Werror #-Wpedantic -O3
+CFLAGS		= #-Wall -Wextra -Werror #-Wpedantic -O3
 DFLAGS		= -g #-fsanitize=address
 
 RM			= rm -rf
@@ -38,7 +38,9 @@ UTILS_SRC	=	ft_dopa.c\
 				ft_dorrr.c\
 				ft_dosa.c\
 				ft_dosb.c\
-				ft_doss.c
+				ft_doss.c\
+				get_args.c\
+				print_list.c
 CHECKER_F 	= $(addprefix $(CHECKER_DIR), $(CHECKER_SRC))
 SWAP_F		= $(addprefix $(SWAP_DIR), $(SWAP_SRC))
 UTILS_F		= $(addprefix $(UTILS_DIR), $(UTILS_SRC))
@@ -48,21 +50,23 @@ SWAP_O		= $(SWAP_F:%.c=%.o)
 UTILS_O		= $(UTILS_F:%.c=%.o)
 OBJS 		= $(CHECKER_O) $(SWAP_O) $(UTILS_O)
 
-INCLUDES 	= -I ./includes
+INCLUDES 	= -I ./includes -I./libft/
 
 #####################################
 ### RULES
 #####################################
 
-all: $(SWAP) $(CHECKER)
+all: $(CHECKER) $(SWAP) 
 
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $^
 $(LIBFT):
 	@make -C libft
 $(CHECKER): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(UTILS_O) $(CHECKER_O) $(LIBFT) -o $(CHECKER)
+	$(CC) $(CFLAGS) $(INCLUDES) $(UTILS_O) $(CHECKER_O) $(LIBFT) -o $(CHECKER)
 
 $(SWAP): $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(SWAP_O) $(UTILS_O) -o $(SWAP)
+	$(CC) $(CFLAGS) $(INCLUDES) $(SWAP_O) $(UTILS_O) $(LIBFT) -o $(SWAP)
 
 $(TEST): $(OBJS) $(LIBFT)
 	$(CC) $(DFLAGS) $(TEST_SRC) $(INCLUDES) $(UTILS_O) $(LIBFT) -o $(TEST)

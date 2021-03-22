@@ -63,40 +63,7 @@ int ft_ptoint(int *p)
 	n = *p;
 	return(n);
 }
-int		getcontent(t_list *list)
-{
-	int	ret;
-	int	*p;
 
-	p = list->content;
-	ret = *p;
-	return(ret);
-}
-void	ft_lstprint(t_list	*a, t_list *b)
-{
-	int	content_a;
-	int	content_b;
-	int	i;
-
-	i = 0;
-	printf("\n_________________");
-	printf("\n");
-	while(a != NULL || b != NULL)
-	{
-		content_a = 0;
-		content_b = 0;
-		if(a){
-			content_a = getcontent(a);
-			a = a->next;
-		}
-		if(b){
-			content_b = getcontent(b);
-			b = b->next;
-		}
-		i++;
-		printf("%3i-> %d\t|\t%d\n",i, content_a, content_b);
-	}
-}
 int			check_duplicate(int	*numbers, int size)
 {
 	int		i;
@@ -118,35 +85,13 @@ int			check_duplicate(int	*numbers, int size)
 	}
 	return 0;
 }
-t_list		*get_args(int argc, char **argv)
-{
-	int		i;
-	int		*value;
-	t_list	*ret;
-	t_list	*temp;
 
-	i = 1;
-	ret = NULL;
-	value = malloc(sizeof(int) * argc);
-	while(argv[i])
-	{
-		if(!ft_isnum(argv[i]))
-			return(NULL);
-		value[i] = ft_atoi(argv[i]);
-		temp = ft_lstnew(&value[i]);
-		ft_lstadd_back(&ret, temp);
-		i++;
-	}
-//	if(!check_duplicate(&value[1], argc))
-//		return(NULL);
-	return(ret);
-}
 int		is_sorted(t_list *lst)
 {
 	int		number;
 	int		last_num;
 
-	//last_num = INT32_MIN;
+	last_num = INT32_MIN;
 	while(lst != NULL)
 	{
 		number = ft_ptoint(lst->content);
@@ -171,27 +116,27 @@ int		do_instrucitons(t_all *all)
 	while(i < all->instructions_len)
 	{
 		if(all->instrucitons[i] == KEY_SA)
-			ret = ft_dosa(a, 0);
+			ret = ft_dosa(a);
 		else if(all->instrucitons[i] == KEY_SB)
-			ret = ft_dosb(b, 0);
+			ret = ft_dosb(b);
 		else if(all->instrucitons[i] == KEY_SS)
-			ret = ft_doss(a, b, 0);
+			ret = ft_doss(a, b);
 		else if(all->instrucitons[i] == KEY_PA)
-			ret = ft_dopa(a, b, 0);
+			ret = ft_dopa(a, b);
 		else if(all->instrucitons[i] == KEY_PB)
-			ret = ft_dopb(a, b, 0);
+			ret = ft_dopb(a, b);
 		else if(all->instrucitons[i] == KEY_RA)
-			ret = ft_dora(a, 0);
+			ret = ft_dora(a);
 		else if(all->instrucitons[i] == KEY_RB)
-			ret = ft_dorb(b, 0);
+			ret = ft_dorb(b);
 		else if(all->instrucitons[i] == KEY_RR)
-			ret = ft_dorr(a, b, 0);
+			ret = ft_dorr(a, b);
 		else if(all->instrucitons[i] == KEY_RRA)
-			ret = ft_dorra(a,0);
+			ret = ft_dorra(a);
 		else if(all->instrucitons[i] == KEY_RRB)
-			ret = ft_dorrb(b,0);
+			ret = ft_dorrb(b);
 		else if(all->instrucitons[i] == KEY_RRR)
-			ret = ft_dorrr(a, b,0);
+			ret = ft_dorrr(a, b);
 		if(ret == 0)
 			return(0);
 		i++;
@@ -230,6 +175,7 @@ int     main(int argc, char **argv)
 	{
 		all.instrucitons = ft_calloc(argc, sizeof(int));
 		all.a = get_args(argc, argv);
+		all.first_a = all.a;
 		if(!all.a)
 			exit_error();
 		i = 0;

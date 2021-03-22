@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 12:29:54 by mviudes           #+#    #+#             */
-/*   Updated: 2021/03/19 13:50:10 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/03/22 19:56:32 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,18 @@
 #define STR_RRB		"rrb"
 #define STR_RRR		"rr"
 
-int		ft_dosa(t_list **a, int	*ret_instruciton);
-int		ft_dosb(t_list **b, int	*ret_instruciton);
-int		ft_doss(t_list **a, t_list **b, int	*ret_instruciton);
-int		ft_dopa(t_list **a, t_list **b, int	*ret_instruciton);
-int		ft_dopb(t_list **a, t_list **b, int	*ret_instruciton);
-int		ft_dora(t_list **a, int	*ret_instruciton);
-int		ft_dorb(t_list **b, int	*ret_instruciton);
-int		ft_dorr(t_list **a, t_list **b, int *ret_instruciton);
-int		ft_dorra(t_list **a, int *ret_instruciton);
-int		ft_dorrb(t_list **b, int *ret_instruciton);
-int		ft_dorrr(t_list **a, t_list **b, int *ret_instruciton);
+int		ft_dosa(t_list **a);
+int		ft_dosb(t_list **b);
+int		ft_doss(t_list **a, t_list **b);
+int		ft_dopa(t_list **a, t_list **b);
+int		ft_dopb(t_list **a, t_list **b);
+int		ft_dora(t_list **a);
+int		ft_dorb(t_list **b);
+int		ft_dorr(t_list **a, t_list **b);
+int		ft_dorra(t_list **a);
+int		ft_dorrb(t_list **b);
+int		ft_dorrr(t_list **a, t_list **b);
+t_list	*get_args(int argc, char **argv);
+void	ft_lstprint(t_list	*a, t_list *b);
+int		getcontent(t_list *list);
 #endif

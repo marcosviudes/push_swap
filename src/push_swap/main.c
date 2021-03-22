@@ -6,12 +6,11 @@
 int     main(int argc, char **argv)
 {
 	int		i;
-
-	i = 0;
+	t_all	all;
 	
 	if(argc < 2)
 		return(0);
-	
-	printf("push_swap funciona");
+	all.a = get_args(argc,argv);
+	print_list(all.a, all.b);
 	return (0);
 }
