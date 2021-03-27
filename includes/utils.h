@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 12:29:54 by mviudes           #+#    #+#             */
-/*   Updated: 2021/03/22 19:56:32 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/03/24 20:39:09 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,6 @@ int		ft_dorrr(t_list **a, t_list **b);
 t_list	*get_args(int argc, char **argv);
 void	ft_lstprint(t_list	*a, t_list *b);
 int		getcontent(t_list *list);
+int		ft_issorted(t_list *lst);
+int		ft_ptoint(int *p);
 #endif

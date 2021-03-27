@@ -57,12 +57,6 @@ void	print_array(int *array, int size)
 		i++;
 	}
 }
-int ft_ptoint(int *p)
-{
-	long int n;
-	n = *p;
-	return(n);
-}
 
 int			check_duplicate(int	*numbers, int size)
 {
@@ -86,22 +80,6 @@ int			check_duplicate(int	*numbers, int size)
 	return 0;
 }
 
-int		is_sorted(t_list *lst)
-{
-	int		number;
-	int		last_num;
-
-	last_num = INT32_MIN;
-	while(lst != NULL)
-	{
-		number = ft_ptoint(lst->content);
-		if(number <= last_num)
-			return(0);
-		last_num = number;
-		lst = lst->next;
-	}
-	return(1);
-}
 int		do_instrucitons(t_all *all)
 {
 	int		i;
@@ -148,7 +126,7 @@ int		check_all(t_all *all)
 	if(!do_instrucitons(all))
 		return(0);
 	ft_lstprint(all->a, all->b);
-	if(!is_sorted(all->a))
+	if(!ft_issorted(all->a))
 		return(0);
 	if(all->b)
 		return(0);
