@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 12:29:54 by mviudes           #+#    #+#             */
-/*   Updated: 2021/03/24 20:39:09 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/03/30 11:29:08 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ t_list	*get_args(int argc, char **argv);
 void	ft_lstprint(t_list	*a, t_list *b);
 int		getcontent(t_list *list);
 int		ft_issorted(t_list *lst);
+int		ft_isreversed(t_list *lst);
 int		ft_ptoint(int *p);
 #endif

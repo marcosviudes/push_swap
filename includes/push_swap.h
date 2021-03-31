@@ -9,6 +9,7 @@
 
 
 typedef struct	s_data{
+	t_list		*first;
 	int			count;
 	int			avg;
 	int			min;
@@ -20,6 +21,7 @@ typedef struct	s_all{
 	t_list	*b;
 	t_data	adata;
 	t_data	bdata;
+	int		init_len;
 	int		i;
 	int		*instruction;
 

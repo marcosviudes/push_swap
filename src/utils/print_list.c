@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 19:46:54 by mviudes           #+#    #+#             */
-/*   Updated: 2021/03/24 13:29:35 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/03/29 11:11:54 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		getcontent(t_list *list)
 	int	ret;
 	int	*p;
 
-	ret = -1;
+	ret = 0;
 	p = list->content;
 	if(p != NULL)
 		 ret = *p;
