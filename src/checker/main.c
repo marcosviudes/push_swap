@@ -140,13 +140,12 @@ int     main(int argc, char **argv)
 {
 	t_all	all;
 	int		content_a;
-	void	*head;
 	char	*buff;
 	int		i;
 
 	int		fd;
 	fd = open("./test2.txt",O_RDONLY);
-	head = &(all).a;
+	all.first_a = &(all).a;
 	all.init_len = argc - 1;
 	i = 0;
 	if(argc > 1)
@@ -154,6 +153,7 @@ int     main(int argc, char **argv)
 		all.instrucitons = ft_calloc(argc, sizeof(int));
 		all.a = get_args(argc, argv);
 		all.first_a = all.a;
+		all.b = ft_calloc(sizeof(t_list), 1);
 		if(!all.a)
 			exit_error();
 		i = 0;
