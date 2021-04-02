@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "utils.h"
-
+#include <limits.h>
 
 int ft_ptoint(int *p)
 {
@@ -25,7 +25,7 @@ int		ft_issorted(t_list *lst)
 	int		number;
 	int		last_num;
 
-	last_num = INT32_MIN;
+	last_num = INT_MIN;
 	while(lst != NULL)
 	{
 		number = ft_ptoint(lst->content);
@@ -42,7 +42,7 @@ int		ft_isreversed(t_list *lst)
 	int		number;
 	int		last_num;
 
-	last_num = INT32_MAX;
+	last_num = INT_MAX;
 	while(lst != NULL)
 	{
 		number = ft_ptoint(lst->content);
