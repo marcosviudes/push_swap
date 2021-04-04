@@ -26,9 +26,9 @@ int		ft_issorted(t_list *lst)
 	int		last_num;
 
 	last_num = INT_MIN;
-	while(lst != NULL)
+	while(lst != NULL && *(int*)lst->content)
 	{
-		number = ft_ptoint(lst->content);
+		number = *(int*)lst->content;//ft_ptoint(lst->content);
 		if(number <= last_num)
 			return(0);
 		last_num = number;

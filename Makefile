@@ -63,10 +63,10 @@ all: $(CHECKER) $(SWAP)
 	$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $^
 $(LIBFT):
 	@make -C libft
-$(CHECKER): $(OBJS) $(LIBFT)
+$(CHECKER): $(OBJS) $(LIBFT) ./includes/checker.h
 	$(CC) $(CFLAGS) $(INCLUDES) $(UTILS_O) $(CHECKER_O) $(LIBFT) -o $(CHECKER)
 
-$(SWAP): $(LIBFT) $(OBJS)
+$(SWAP): $(LIBFT) $(OBJS) ./includes/push_swap.h
 	$(CC) $(CFLAGS) $(INCLUDES) $(SWAP_O) $(UTILS_O) $(LIBFT) -o $(SWAP)
 
 $(TEST): $(OBJS) $(LIBFT)

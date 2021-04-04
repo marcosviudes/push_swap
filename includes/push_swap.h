@@ -19,11 +19,13 @@ typedef struct	s_data{
 typedef struct	s_all{
 	t_list	*a;
 	t_list	*b;
-	t_data	adata;
-	t_data	bdata;
+	t_data	*adata;
+	t_data	*bdata;
 	int		init_len;
 	int		i;
 	int		*instruction;
 
 }				t_all;
+
+void	solve_three(t_all *all);
 #endif
