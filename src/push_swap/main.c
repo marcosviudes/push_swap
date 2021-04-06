@@ -3,6 +3,10 @@
 #include <libft.h>
 #include <limits.h>
 
+void	solve_hundred_less(all)
+{
+	return;
+}
 void	push_minb(t_all *all)
 {
 	int		i;
@@ -34,12 +38,13 @@ void	push_minmaxb(t_all *all)
 			ft_dopb(&all->a, &all->b);
 			flag++;
 		}
-		if(all->adata->max == *(int*)all->a->content)
+		else if(all->adata->max == *(int*)all->a->content)
 		{
 			ft_dopb(&all->a, &all->b);
 			flag++;
 		}
-		ft_dora(&all->a);
+		else
+			ft_dora(&all->a);
 	}
 }
 void	solve_five_less(t_all *all)
@@ -113,6 +118,9 @@ void	sort_algorithm(t_all *all)
 			solve_three(all);
 		else if(all->init_len <= 5)
 			solve_five_less(all);
+		else if(all->init_len <= 100)
+			solve_hundred_less(all);
+
 	}
 }
 void	get_minmax(t_data *data, t_list *list)
