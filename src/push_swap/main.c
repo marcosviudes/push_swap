@@ -5,6 +5,7 @@
 
 void	solve_hundred_less(all)
 {
+	
 	return;
 }
 void	push_minb(t_all *all)
@@ -160,11 +161,11 @@ void	init_algorithm(t_all *all)
 {
 	all->adata->avg = get_average(all->a);
 	get_minmax(all->adata, all->a);
-	printf("A data:\
+/*	printf("A data:\
 			\n\taverage : %i\
 			\n\tmin :	  %i\
 			\n\tmax :	  %i",\
-		all->adata->avg, all->adata->min, all->adata->max);
+		all->adata->avg, all->adata->min, all->adata->max);*/
 }
 int     main(int argc, char **argv)
 {
@@ -174,6 +175,11 @@ int     main(int argc, char **argv)
 	if(argc < 2)
 		return(0);
 	all.a = get_args(argc,argv);
+	/*while (all.a)
+	{
+		printf("A[%i]: %i\n", i, *(int*)all.a->content);
+		all.a = all.a->next;
+	}*/
 	all.init_len = ft_lstsize(all.a);
 	all.b = ft_calloc(1, sizeof(t_list));
 	all.adata = ft_calloc(1, sizeof(t_data));
@@ -181,9 +187,9 @@ int     main(int argc, char **argv)
 	all.i = 0;
 	all.adata->count = all.init_len;
 	all.instruction = malloc(sizeof(int) * (argc - 1));
-	ft_lstprint(all.a, all.b);
+//	ft_lstprint(all.a, all.b);
 	init_algorithm(&all);
 	sort_algorithm(&all);
-	ft_lstprint(all.a, all.b);
+	//ft_lstprint(all.a, all.b);
 	return (0);
 }

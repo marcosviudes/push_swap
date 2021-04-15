@@ -38,6 +38,8 @@ int		valid_instruction(char *line)
 		return (KEY_RRB);
 	else if(ft_strncmp(line, "rrr", 4) == 0)
 		return (KEY_RRR);
+	else if(line[0] == '\0')
+		return(0);
 	return(-1);
 }
 void	exit_error()
@@ -115,6 +117,8 @@ int		do_instrucitons(t_all *all)
 			ret = ft_dorrb(b);
 		else if(all->instrucitons[i] == KEY_RRR)
 			ret = ft_dorrr(a, b);
+		else if(all->instrucitons[i] == 0)
+			return (1);
 		if(ret == 0)
 			return(0);
 		i++;
@@ -128,7 +132,7 @@ int		check_all(t_all *all)
 	ft_lstprint(all->a, all->b);
 	if(!ft_issorted(all->a))
 		return(0);
-	if(all->b)
+	if(all->b->content)
 		return(0);
 	return(1);
 }
@@ -144,7 +148,6 @@ int     main(int argc, char **argv)
 	int		i;
 
 	int		fd;
-	fd = open("./test2.txt",O_RDONLY);
 	all.first_a = &(all).a;
 	all.init_len = argc - 1;
 	i = 0;
@@ -157,9 +160,10 @@ int     main(int argc, char **argv)
 		if(!all.a)
 			exit_error();
 		i = 0;
-		while(get_next_line(fd, &buff) > 0)//get_next_line(STDIN_FILENO, &buff))
+		while(get_next_line(STDIN_FILENO, &buff) > 0)
 		{
-			printf("%s  ", buff);
+			if(buff[0] == '\0')
+				break;
 			all.instrucitons[i] = valid_instruction(buff);
 			if(all.instrucitons[i]== -1)
 				exit_error();

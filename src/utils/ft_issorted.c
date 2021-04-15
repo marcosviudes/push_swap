@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 20:35:16 by mviudes           #+#    #+#             */
-/*   Updated: 2021/03/30 11:28:39 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/04/12 18:36:32 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_issorted(t_list *lst)
 	last_num = INT_MIN;
 	while(lst != NULL && *(int*)lst->content)
 	{
-		number = *(int*)lst->content;//ft_ptoint(lst->content);
+		number = *(int*)lst->content;
 		if(number <= last_num)
 			return(0);
 		last_num = number;

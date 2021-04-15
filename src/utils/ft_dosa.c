@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 13:51:16 by mviudes           #+#    #+#             */
-/*   Updated: 2021/03/22 19:00:09 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/04/11 12:56:28 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@ int		ft_dosa(t_list **a)
 {
 	if(!ft_lstfswap(a))
 		return(0);
+	ft_putendl_fd(STR_SA, 1);
 	return(KEY_SA);
 }
