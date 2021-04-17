@@ -3,9 +3,76 @@
 #include <libft.h>
 #include <limits.h>
 
-void	solve_hundred_less(all)
+void	get_minmax(t_data *data, t_list *list)
 {
-	
+	int num;
+
+	data->min = INT_MAX;
+	data->max = INT_MIN;
+	while(list)
+	{
+		num = ft_ptoint(list->content);
+		if(num < data->min)
+			data->min = num;
+		if(num > data->max)
+			data->max = num;
+		list = list->next;
+	}
+}
+
+int		get_average(t_list	*list)
+{
+	int		sum;
+	int		count;
+	float	avg;
+
+	sum = 0;
+	count = 0;
+	while(list)
+	{
+		sum += ft_ptoint(list->content);
+		count++;
+		list = list->next;
+	}
+	avg = sum/count;
+	return((int)avg);
+}
+
+void	init_algorithm(t_all *all)
+{
+	int		i;
+	t_list *a;
+	t_list *b;
+	int		med;
+
+	med = (all->adata->min + all->adata->max)/2;
+
+	i = all->init_len/2;
+	a = all->a;
+	b = all->b;
+	while(i--)
+	{
+		if(*(int*)a->content <= med)
+			ft_dorra(&a);
+		else if(*(int*)a->content >= med)
+			ft_dopb(&all->a, &all->b);
+		ft_lstprint(all->a, all->b);
+	}
+}
+void	get_data_algorithm(t_all *all)
+{
+	all->adata->avg = get_average(all->a);
+	get_minmax(all->adata, all->a);
+	printf("A data:\
+			\n\taverage : %i\
+			\n\tmin :	  %i\
+			\n\tmax :	  %i",\
+		all->adata->avg, all->adata->min, all->adata->max);
+}
+
+void	solve_hundred_less(t_all *all)
+{
+	init_algorithm(all);
 	return;
 }
 void	push_minb(t_all *all)
@@ -124,49 +191,8 @@ void	sort_algorithm(t_all *all)
 
 	}
 }
-void	get_minmax(t_data *data, t_list *list)
-{
-	int num;
 
-	data->min = INT_MAX;
-	data->max = INT_MIN;
-	while(list)
-	{
-		num = ft_ptoint(list->content);
-		if(num < data->min)
-			data->min = num;
-		if(num > data->max)
-			data->max = num;
-		list = list->next;
-	}
-}
-int		get_average(t_list	*list)
-{
-	int		sum;
-	int		count;
-	float	avg;
 
-	sum = 0;
-	count = 0;
-	while(list)
-	{
-		sum += ft_ptoint(list->content);
-		count++;
-		list = list->next;
-	}
-	avg = sum/count;
-	return((int)avg);
-}
-void	init_algorithm(t_all *all)
-{
-	all->adata->avg = get_average(all->a);
-	get_minmax(all->adata, all->a);
-/*	printf("A data:\
-			\n\taverage : %i\
-			\n\tmin :	  %i\
-			\n\tmax :	  %i",\
-		all->adata->avg, all->adata->min, all->adata->max);*/
-}
 int     main(int argc, char **argv)
 {
 	int		i;
@@ -188,7 +214,7 @@ int     main(int argc, char **argv)
 	all.adata->count = all.init_len;
 	all.instruction = malloc(sizeof(int) * (argc - 1));
 //	ft_lstprint(all.a, all.b);
-	init_algorithm(&all);
+	get_data_algorithm(&all);
 	sort_algorithm(&all);
 	//ft_lstprint(all.a, all.b);
 	return (0);
