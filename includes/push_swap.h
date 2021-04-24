@@ -7,6 +7,27 @@
 # include "utils.h"
 # include "get_next_line.h"
 
+typedef struct s_flags
+{
+	int			sa;
+	int			sb;
+	int			ss;
+	int			pa;
+	int			pb;
+	int			ra;
+	int			rb;
+	int			rr;
+	int			rra;
+	int			rrb;
+	int			rrr;
+}				s_flags;
+
+typedef struct s_min
+{
+	int		list_len;
+	int		min;
+	int		pos;
+}				t_min;
 
 typedef struct	s_data{
 	t_list		*first;
@@ -14,6 +35,7 @@ typedef struct	s_data{
 	int			avg;
 	int			min;
 	int			max;
+	t_min		mindata;
 }				t_data;
 
 typedef struct	s_all{

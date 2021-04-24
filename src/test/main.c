@@ -1,12 +1,14 @@
-#include "../utils/libft.h"
-#include "../../libft/libft.h"
-
+#include <push_swap.h>
+#include <utils.h>
+#include <libft.h>
+#include <limits.h>
+/*
 int ft_ptoint(int *p)
 {
 	long int n;
 	n = *p;
 	return(n);
-}
+}*/
 void	add_content(t_list *list, int value)
 {
 	int		*i;
@@ -15,7 +17,7 @@ void	add_content(t_list *list, int value)
 	*i = value;
 	list->content = &i;
 	return;
-}
+}/*
 int		getcontent(t_list *list)
 {
 	int	ret;
@@ -24,8 +26,8 @@ int		getcontent(t_list *list)
 	p = list->content;
 	ret = *p;
 	return(ret);
-}
-
+}*/
+/*
 void	ft_lstprint(t_list	*a, t_list *b)
 {
 	int	content_a;
@@ -48,11 +50,11 @@ void	ft_lstprint(t_list	*a, t_list *b)
 			b = b->next;
 		}
 		i++;
-		printf("%i-> %d\t|\t%d\n",i, content_a, content_b);
+		printf("%i-> %d\t|\t%d\n; &a:%p, &b:%p",i, content_a, content_b, &content_a , &content_b);
 	}
 
 }
-
+*/
 int		main(int argc, char **argv)
 {
 	t_list		*a;

@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 12:29:54 by mviudes           #+#    #+#             */
-/*   Updated: 2021/03/30 11:29:08 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/04/24 16:34:29 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 #define KEY_PB		5
 #define KEY_RA		6
 #define KEY_RB		7
-#define KEY_RR		8
+#define KEY_RR		14
 #define KEY_RRA		9
 #define KEY_RRB		10
-#define KEY_RRR		11
+#define KEY_RRR		19
 
 #define STR_SA		"sa"
 #define STR_SB		"sb"
