@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 19:42:25 by mviudes           #+#    #+#             */
-/*   Updated: 2021/04/29 20:36:38 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/05/01 21:44:39 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 typedef struct		s_list
 {
 	void			*content;
-//	int				pos;
+	int				pos;
 	struct s_list	*next;
 }					t_list;
 

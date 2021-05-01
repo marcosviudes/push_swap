@@ -197,11 +197,78 @@ void	order_int(int	*arr, int size)
 	}
 	i = 0;
 }
+
+int	search_next_item(t_list *st_a, int len_a, int len_chunk)
+{
+	t_list	*aux;
+	int		pos;
+
+	aux = st_a;
+	pos = 0;
+	while (aux != NULL)
+	{
+		if (aux->pos >= (len_a - len_chunk))
+		{
+			if (pos >= (len_a / 2))
+				return (1);
+		}
+		pos++;
+		aux = aux->next;
+	}
+	return (0);
+}
+
+void	create_chunk(t_list **a, t_list **b, int chunks)
+{
+	int	len_a;
+	int	len_b;
+
+	len_a = ft_lstsize(*a) - 1;
+	len_b = ft_lstsize(*b);
+	while (ft_lstsize(*b) - len_b <= (len_a / chunks))
+	{
+		if ((*a)->pos >= (len_a - (len_a / chunks)))
+			ft_dopb(b, a, 0);
+		else
+		{
+			if (search_next_item(*a, len_a, (len_a / chunks)) == 0)
+			{
+				while ((*a)->pos < (len_a - (len_a / chunks)))
+					ft_dora(a,b, 0);
+			}
+			else
+				while ((*a)->pos < (len_a - (len_a / chunks)))
+					ft_dorra(a,b, 0);
+		}
+	}
+}
+
+void	solve_hundred_less(t_all *all)
+{
+	int	chunks;
+
+	while (ft_lstsize(all->a) >= 5)
+	{
+		if (ft_lstsize(all->a) >= 200)
+			chunks = 11;
+		else
+			chunks = 5;
+		create_chunk(&all->a, &all->b, chunks);
+	}
+	while (all->a->pos != 3)
+		ft_dora(&all->a, &all->b, 0);
+	ft_dopb(&all->a,  &all->b, 0);
+	solve_three(all);
+	//return_greater_to_a(a, b);
+	while (!ft_issorted(all->a))
+		ft_dorra(&all->a,  &all->b, 0);
+}
+/*
 void	solve_hundred_less(t_all *all)
 {
 	
 	return;
-}
+}*/
 void	push_minb(t_all *all)
 {
 	int		i;
@@ -341,6 +408,6 @@ int     main(int argc, char **argv)
 //	ft_lstprint(all.a, all.b);
 	get_data_algorithm((all).adata, (all).a);
 	sort_algorithm(&all);
-	ft_lstprint(all.a, all.b);
+//	ft_lstprint(all.a, all.b);
 	return (0);
 }
