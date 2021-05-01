@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 19:42:19 by mviudes           #+#    #+#             */
-/*   Updated: 2021/04/15 20:56:05 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/04/29 20:44:48 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ t_list		*get_args(int argc, char **argv)
 	else
 	{
 		char **spline;
-		int		i;
 
 		i = 0;
 		spline = ft_split(argv[1], ' ');

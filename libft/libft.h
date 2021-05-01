@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 19:42:25 by mviudes           #+#    #+#             */
-/*   Updated: 2021/03/19 12:18:42 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/04/29 20:36:38 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct		s_list
 {
 	void			*content;
+//	int				pos;
 	struct s_list	*next;
 }					t_list;
 
@@ -79,6 +80,7 @@ void				*ft_lstpop(t_list **list);
 int					ft_lstfswap(t_list **list);
 void				ft_lstdelfirst(t_list **list);
 void				ft_lstrot(t_list **list);
-int    				ft_lstrevrot(t_list **list);
-void    			ft_lstdellast(t_list **list);
+int					ft_lstrevrot(t_list **list);
+void				ft_lstdellast(t_list **list);
+void				ft_swap(int* src, int* dest);
 #endif

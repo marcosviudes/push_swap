@@ -7,21 +7,6 @@
 # include "utils.h"
 # include "get_next_line.h"
 
-typedef struct s_flags
-{
-	int			sa;
-	int			sb;
-	int			ss;
-	int			pa;
-	int			pb;
-	int			ra;
-	int			rb;
-	int			rr;
-	int			rra;
-	int			rrb;
-	int			rrr;
-}				s_flags;
-
 typedef struct s_min
 {
 	int		list_len;
@@ -43,6 +28,7 @@ typedef struct	s_all{
 	t_list	*b;
 	t_data	*adata;
 	t_data	*bdata;
+	int		*arr;
 	int		init_len;
 	int		i;
 	int		*instruction;

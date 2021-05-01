@@ -1,5 +1,11 @@
 #include "libft.h"
 
+void ft_swap(int* src, int* dest)
+{
+	int temp = *src;
+	*src = *dest;
+	*dest = temp;
+}
 
 int		ft_lstfswap(t_list **list)
 {

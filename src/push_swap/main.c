@@ -134,7 +134,9 @@ t_min	get_min_pos(t_list *list, t_min old)
 		i++;
 	}
 	return (data);
-}/*
+}
+/////////////
+/*
 void solve_algorithm(t_all *all)
 {
 	int		i;
@@ -154,6 +156,7 @@ void solve_algorithm(t_all *all)
 
 }
 */
+
 void	push_b_to_order(t_all *all, int low, int high, int count)
 {
 	int	i;
@@ -175,10 +178,155 @@ void	push_b_to_order(t_all *all, int low, int high, int count)
 	//while (all->b)
 	//	order_b(all);
 }
+/*
+order_chunk(t_list *dst, t_list *src, int count){}*/
+//////////////
+int		*int_array(t_list *list)
+{
+	int *arr;
+	int	lst_len;
+	int	i;
 
-order_chunk(t_list *dst, t_list *src, int count){
-
+	i = 0;
+	lst_len = ft_lstsize(list);
+	arr = malloc(sizeof(int) * lst_len);
+	while(list != NULL)
+	{
+		arr[i] = *(int*)list->content;
+		i++;
+		list = list->next;
+	}
+	return(arr);
 }
+void	order_int(int	*arr, int size)
+{
+	int i, j, min_idx;
+
+	i = 0;
+	while(i < size - 1)
+	{
+		min_idx = i;
+		j = i +1;
+		while(j < size)
+		{
+			if (arr[j] < arr[min_idx])
+				min_idx = j;
+			j++;
+		}
+		ft_swap(&arr[min_idx], &arr[i]);
+		i++;
+	}
+	i = 0;
+}
+/****
+void	push_b_to_order(t_all *all, int chunk_num)
+{
+	int i_arr;
+	int	chunk;
+	int	a_len;
+	int	j;
+	int	i;
+
+	int	chuncksize = (a_len/chunk_num);
+	a_len = ft_lstsize(all->a);
+	all->arr = int_array(all->a);
+	order_int(all->arr, all->init_len);
+	chunk = 0;
+	i_arr = 0;
+	i = 0;
+
+	j = 0;
+	while (all->a != NULL)
+	{
+		while(chunk < chunk_num)
+		{
+			i_arr = 0;
+			while(i_arr < chuncksize)
+			{
+				if(*(int*)all->a->content == arr[i_arr]){
+					ft_dopb(&all->a, &all->b);
+					break;
+				}
+				i_arr++;
+			}
+				else 
+					ft_dora(&all->a);
+			chunk++;
+		}
+		ft_dopb(&all->a, &all->b);
+	}
+	
+
+}***/
+/*
+int	search_next_item(t_list *a, int len_a, int len_chunk)
+{
+	t_list	*aux;
+	int		pos;
+
+	aux = a;
+	pos = 0;
+	while (aux != NULL)
+	{
+		if (aux->pos >= (len_a - len_chunk))
+		{
+			if (pos >= (len_a / 2))
+				return (1);
+		}
+		pos++;
+		aux = aux->next;
+	}
+	return (0);
+}
+
+void	create_chunk(t_list **a, t_list **b, int chunks)
+{
+	int	len_a;
+	int	len_b;
+
+	len_a = ft_lstsize(*a) - 1;
+	len_b = ft_lstsize(*b);
+	while (ft_lstsize(*b) - len_b <= (len_a / chunks))
+	{
+		if ((*a)->pos >= (len_a - (len_a / chunks)))
+			ft_dopb(b, a);
+		else
+		{
+			if (search_next_item(*a, len_a, (len_a / chunks)) == 0)
+			{
+				while ((*a)->pos < (len_a - (len_a / chunks)))
+					ft_dora(a);
+			}
+			else
+				while ((*a)->pos < (len_a - (len_a / chunks)))
+					ft_dorra(a);
+		}
+	}
+}
+
+void		insert_pos(t_list **list, int *arr)
+{
+	t_list *temp;
+	int i;
+	int	len;
+
+	len = ft_lstsize(*list);
+	temp = *list;
+	while(temp != NULL){
+		i = 0;
+		while(i < len)
+		{
+			if(*(int*)temp->content == arr[i])
+			{
+				temp->pos = i;
+				break;
+			}
+			i++;
+		}
+		temp = temp->next;
+	}
+}
+*/
 void	solve_hundred_less(t_all *all)
 {
 //	init_algorithm(all);
@@ -191,11 +339,17 @@ void	solve_hundred_less(t_all *all)
 	int	med_up = (med + all->adata->max)/ 2;
 	int	med_down = (med + all->adata->min)/ 2;
 	int count = all->init_len/4;
-	push_b_to_order(all, all->adata->min, med_down, count);	//1
-	//push_b_to_order(all, med_up, all->adata->max, count);		//4
-	push_b_to_order(all, med, med_up, count);					//3
-	push_b_to_order(all, med_down, med, count);					//2
-	order_chunk(&all->a, &all->b, count);
+
+
+	all->arr = int_array(all->a);
+	order_int(all->arr, all->init_len);
+//	insert_pos(&all->a, all->arr);
+//	push_b_to_order(all, 4);
+//	push_b_to_order(all, all->adata->min, med_down, count);	//1
+//	push_b_to_order(all, med_up, all->adata->max, count);		//4
+//	push_b_to_order(all, med, med_up, count);					//3
+//	push_b_to_order(all, med_down, med, count);					//2
+//	order_chunk(&all->a, &all->b, count);
 	int		i;
 
 	i = 0;
@@ -298,7 +452,6 @@ void	solve_three(t_all *all)
 			ft_dosa(&all->a);
 			ft_dora(&all->a);
 		}
-	return;
 }
 
 void	sort_algorithm(t_all *all)
