@@ -96,27 +96,27 @@ int		do_instrucitons(t_all *all)
 	while(i < all->instructions_len)
 	{
 		if(all->instrucitons[i] == KEY_SA)
-			ret = ft_dosa(a);
+			ret = ft_dosa(a, b, 0);
 		else if(all->instrucitons[i] == KEY_SB)
-			ret = ft_dosb(b);
+			ret = ft_dosb(a, b, 0);
 		else if(all->instrucitons[i] == KEY_SS)
-			ret = ft_doss(a, b);
+			ret = ft_doss(a, b, 0);
 		else if(all->instrucitons[i] == KEY_PA)
-			ret = ft_dopa(a, b);
+			ret = ft_dopa(a, b, 0);
 		else if(all->instrucitons[i] == KEY_PB)
-			ret = ft_dopb(a, b);
+			ret = ft_dopb(a, b, 0);
 		else if(all->instrucitons[i] == KEY_RA)
-			ret = ft_dora(a);
+			ret = ft_dora(a, b, 0);
 		else if(all->instrucitons[i] == KEY_RB)
-			ret = ft_dorb(b);
+			ret = ft_dorb(a, b, 0);
 		else if(all->instrucitons[i] == KEY_RR)
-			ret = ft_dorr(a, b);
+			ret = ft_dorr(a, b, 0);
 		else if(all->instrucitons[i] == KEY_RRA)
-			ret = ft_dorra(a);
+			ret = ft_dorra(a, b, 0);
 		else if(all->instrucitons[i] == KEY_RRB)
-			ret = ft_dorrb(b);
+			ret = ft_dorrb(a, b, 0);
 		else if(all->instrucitons[i] == KEY_RRR)
-			ret = ft_dorrr(a, b);
+			ret = ft_dorrr(a, b, 0);
 		else if(all->instrucitons[i] == 0)
 			return (1);
 		if(ret == 0)
@@ -180,5 +180,6 @@ int     main(int argc, char **argv)
 		printf(OK);
 	}
 	ft_lstprint(all.a, all.b);
+	getchar();
 	return (0);
 }

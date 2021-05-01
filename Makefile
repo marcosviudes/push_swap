@@ -14,7 +14,7 @@ LIBFT		= ./libft/libft.a
 
 CC 			= gcc  
 CFLAGS		= #-Wall -Wextra -Werror #-Wpedantic -O3
-DFLAGS		= -g #-fsanitize=address
+DFLAGS		= -g -fsanitize=address
 
 RM			= rm -rf
 MKDIR		= mkdir -p
@@ -71,6 +71,9 @@ $(SWAP): $(LIBFT) $(OBJS) ./includes/push_swap.h
 
 $(TEST): $(OBJS) $(LIBFT)
 	$(CC) $(DFLAGS) $(TEST_SRC) $(INCLUDES) $(UTILS_O) $(LIBFT) -o $(TEST)
+
+.PHONY:	all clean fclean re retest debug normi
+
 normi: fclean
 	norminette src/*
 	norminette includes/*
@@ -89,18 +92,4 @@ retest:
 	make test
 
 debug: fclean
-
-.PHONY:	all clean fclean re debug
-
-
-#ft_dopa.c\
-#			ft_dopb.c\
-#			ft_dora.c\
-#			ft_dorb.c\
-#			ft_dorr.c\
-#			ft_dorra.c\
-#			ft_dorrb.c\
-#			ft_dorrr.c\
-#			ft_dosa.c\
-#			ft_dosb.c\
-#			ft_doss.c
+	make re CFLAGS="$(DFLAGS)"

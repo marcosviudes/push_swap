@@ -5,27 +5,27 @@
 
 void	ft_doinstruction(int instruction, t_all *all){
 	if(instruction == KEY_SA)
-		ft_dosa(&all->a);
+		ft_dosa(&all->a, &all->b, 1);
 	if(instruction == KEY_SB)
-		ft_dosb(&all->b);
+		ft_dosb(&all->a, &all->b, 1);
 	if(instruction == KEY_SS)
-		ft_doss(&all->a, &all->b);
+		ft_doss(&all->a, &all->b, 1);
 	if(instruction == KEY_PA)
-		ft_dopa(&all->a, &all->b);
+		ft_dopa(&all->a, &all->b, 1);
 	if(instruction == KEY_PB)
-		ft_dopb(&all->a, &all->b);
+		ft_dopb(&all->a, &all->b, 1);
 	if(instruction == KEY_RA)
-		ft_dora(&all->a);
+		ft_dora(&all->a, &all->b, 1);
 	if(instruction == KEY_RB)
-		ft_dorb(&all->a);
+		ft_dorb(&all->a, &all->b, 1);
 	if(instruction == KEY_RR)
-		ft_dorr(&all->a, &all->b);
+		ft_dorr(&all->a, &all->b, 1);
 	if(instruction == KEY_RRA)
-		ft_dorra(&all->a);
+		ft_dorra(&all->a, &all->b, 1);
 	if(instruction == KEY_RRB)
-		ft_dorrb(&all->b);
+		ft_dorrb(&all->a, &all->b, 1);
 	if(instruction == KEY_RRR)
-		ft_dorrr(&all->a, &all->b);
+		ft_dorrr(&all->a, &all->b, 1);
 }
 
 void	get_minmax(t_data *data, t_list *list)
@@ -90,13 +90,13 @@ int	init_algorithm(t_all *all)
 	{
 		if((*(int*)all->a->content) < med)
 		{
-			ft_dopb(&all->a, &all->b);
+			ft_dopb(&all->a, &all->b, 1);
 			j--;
 			ret++;
 		}
 		else
 		{
-			ft_dora(&all->a);
+			ft_dora(&all->a, &all->b, 1);
 			//j--;
 		}
 	}
@@ -135,27 +135,6 @@ t_min	get_min_pos(t_list *list, t_min old)
 	}
 	return (data);
 }
-/////////////
-/*
-void solve_algorithm(t_all *all)
-{
-	int		i;
-	int		a_len;
-	int		pushed;
-	int 	roted;
-	int		temp;
-	roted = 0;
-	i = 0;
-	int j = 6;
-
-	all->adata->mindata = get_min_pos(all->a, all->adata->mindata);
-	all->bdata->mindata = get_min_pos(all->b, all->bdata->mindata);
-	get_data_algorithm(all->adata, all->a);
-	get_data_algorithm(all->bdata, all->b);
-	pushed = init_algorithm(all);
-
-}
-*/
 
 void	push_b_to_order(t_all *all, int low, int high, int count)
 {
@@ -166,12 +145,12 @@ void	push_b_to_order(t_all *all, int low, int high, int count)
 	{
 		if ((*(int*)all->a->content) >= low && (*(int*)all->a->content) <= high)
 		{
-			ft_dopb(&all->a, &all->b);
+			ft_dopb(&all->a, &all->b, 1);
 			count--;
 		}
 		else
 		{
-			ft_dora(&all->a);
+			ft_dora(&all->a, &all->b, 1);
 		}
 		i++;
 	}
@@ -218,142 +197,9 @@ void	order_int(int	*arr, int size)
 	}
 	i = 0;
 }
-/****
-void	push_b_to_order(t_all *all, int chunk_num)
-{
-	int i_arr;
-	int	chunk;
-	int	a_len;
-	int	j;
-	int	i;
-
-	int	chuncksize = (a_len/chunk_num);
-	a_len = ft_lstsize(all->a);
-	all->arr = int_array(all->a);
-	order_int(all->arr, all->init_len);
-	chunk = 0;
-	i_arr = 0;
-	i = 0;
-
-	j = 0;
-	while (all->a != NULL)
-	{
-		while(chunk < chunk_num)
-		{
-			i_arr = 0;
-			while(i_arr < chuncksize)
-			{
-				if(*(int*)all->a->content == arr[i_arr]){
-					ft_dopb(&all->a, &all->b);
-					break;
-				}
-				i_arr++;
-			}
-				else 
-					ft_dora(&all->a);
-			chunk++;
-		}
-		ft_dopb(&all->a, &all->b);
-	}
-	
-
-}***/
-/*
-int	search_next_item(t_list *a, int len_a, int len_chunk)
-{
-	t_list	*aux;
-	int		pos;
-
-	aux = a;
-	pos = 0;
-	while (aux != NULL)
-	{
-		if (aux->pos >= (len_a - len_chunk))
-		{
-			if (pos >= (len_a / 2))
-				return (1);
-		}
-		pos++;
-		aux = aux->next;
-	}
-	return (0);
-}
-
-void	create_chunk(t_list **a, t_list **b, int chunks)
-{
-	int	len_a;
-	int	len_b;
-
-	len_a = ft_lstsize(*a) - 1;
-	len_b = ft_lstsize(*b);
-	while (ft_lstsize(*b) - len_b <= (len_a / chunks))
-	{
-		if ((*a)->pos >= (len_a - (len_a / chunks)))
-			ft_dopb(b, a);
-		else
-		{
-			if (search_next_item(*a, len_a, (len_a / chunks)) == 0)
-			{
-				while ((*a)->pos < (len_a - (len_a / chunks)))
-					ft_dora(a);
-			}
-			else
-				while ((*a)->pos < (len_a - (len_a / chunks)))
-					ft_dorra(a);
-		}
-	}
-}
-
-void		insert_pos(t_list **list, int *arr)
-{
-	t_list *temp;
-	int i;
-	int	len;
-
-	len = ft_lstsize(*list);
-	temp = *list;
-	while(temp != NULL){
-		i = 0;
-		while(i < len)
-		{
-			if(*(int*)temp->content == arr[i])
-			{
-				temp->pos = i;
-				break;
-			}
-			i++;
-		}
-		temp = temp->next;
-	}
-}
-*/
 void	solve_hundred_less(t_all *all)
 {
-//	init_algorithm(all);
-//	ft_lstprint(all->a, all->b);
-//	all->bdata->count = ft_lstsize(all->b);
-//	all->adata->mindata.list_len = all->adata->count;
-//	all->bdata->mindata.list_len = all->bdata->count;
-	all->adata->count = ft_lstsize(all->a);
-	int	med = (all->adata->min + all->adata->max)/2;
-	int	med_up = (med + all->adata->max)/ 2;
-	int	med_down = (med + all->adata->min)/ 2;
-	int count = all->init_len/4;
-
-
-	all->arr = int_array(all->a);
-	order_int(all->arr, all->init_len);
-//	insert_pos(&all->a, all->arr);
-//	push_b_to_order(all, 4);
-//	push_b_to_order(all, all->adata->min, med_down, count);	//1
-//	push_b_to_order(all, med_up, all->adata->max, count);		//4
-//	push_b_to_order(all, med, med_up, count);					//3
-//	push_b_to_order(all, med_down, med, count);					//2
-//	order_chunk(&all->a, &all->b, count);
-	int		i;
-
-	i = 0;
-//	solve_algorithm(all);
+	
 	return;
 }
 void	push_minb(t_all *all)
@@ -365,10 +211,10 @@ void	push_minb(t_all *all)
 	{
 		if(all->adata->min == *(int*)all->a->content)
 		{
-			ft_dopb(&all->a, &all->b);
+			ft_dopb(&all->a, &all->b, 1);
 			return;
 		}
-		ft_dora(&all->a);
+		ft_dora(&all->a, &all->b, 1);
 	}
 }
 void	push_minmaxb(t_all *all)
@@ -384,16 +230,16 @@ void	push_minmaxb(t_all *all)
 			return;
 		if(all->adata->min == *(int*)all->a->content)
 		{
-			ft_dopb(&all->a, &all->b);
+			ft_dopb(&all->a, &all->b, 1);
 			flag++;
 		}
 		else if(all->adata->max == *(int*)all->a->content)
 		{
-			ft_dopb(&all->a, &all->b);
+			ft_dopb(&all->a, &all->b, 1);
 			flag++;
 		}
 		else
-			ft_dora(&all->a);
+			ft_dora(&all->a, &all->b, 1);
 	}
 }
 void	solve_five_less(t_all *all)
@@ -402,18 +248,18 @@ void	solve_five_less(t_all *all)
 	{
 		push_minb(all);
 		solve_three(all);
-		ft_dopa(&all->a, &all->b);
+		ft_dopa(&all->a, &all->b, 1);
 		return;
 	}
 	if(all->init_len == 5)
 	{
 		push_minmaxb(all);
 		if(*(int*)all->b->content < *(int*)all->b->next->content)
-			ft_dosb(&all->b);
+			ft_dosb(&all->a, &all->b, 1);
 		solve_three(all);
-		ft_dopa(&all->a, &all->b);
-		ft_dora(&all->a);
-		ft_dopa(&all->a, &all->b);
+		ft_dopa(&all->a, &all->b, 1);
+		ft_dora(&all->a, &all->b, 1);
+		ft_dopa(&all->a, &all->b, 1);
 		return;
 	}
 }
@@ -437,20 +283,20 @@ void	solve_three(t_all *all)
 	{
 		if(aux[1] > aux[2])
 		{
-			ft_dosa(&all->a);
-			ft_dorra(&all->a);
+			ft_dosa(&all->a, &all->b, 1);
+			ft_dorra(&all->a, &all->b, 1);
 		}
 		else if(aux[2] > aux[0])
-			ft_dosa(&all->a);
+			ft_dosa(&all->a, &all->b, 1);
 		else 
-			ft_dora(&all->a);
+			ft_dora(&all->a, &all->b, 1);
 	}
 	else if(aux[0] > aux[2])
-			ft_dorra(&all->a);
+			ft_dorra(&all->a, &all->b, 1);
 	else
 		{
-			ft_dosa(&all->a);
-			ft_dora(&all->a);
+			ft_dosa(&all->a, &all->b, 1);
+			ft_dora(&all->a, &all->b, 1);
 		}
 }
 
@@ -461,7 +307,7 @@ void	sort_algorithm(t_all *all)
 	if(!ft_issorted(all->a))
 	{
 		if(all->init_len == 2)
-			ft_dosa(&all->a);
+			ft_dosa(&all->a, &all->b, 1);
 		else if(all->init_len == 3)
 			solve_three(all);
 		else if(all->init_len <= 5)
@@ -486,7 +332,6 @@ int     main(int argc, char **argv)
 		all.a = all.a->next;
 	}*/
 	all.init_len = ft_lstsize(all.a);
-//	all.b = ft_calloc(1, sizeof(t_list));
 	all.b=NULL;
 	all.adata = ft_calloc(1, sizeof(t_data));
 	all.bdata = ft_calloc(1, sizeof(t_data));

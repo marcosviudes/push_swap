@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 12:29:54 by mviudes           #+#    #+#             */
-/*   Updated: 2021/04/24 16:34:29 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/05/01 14:14:58 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define UTILS_H
 
 # include "libft.h"
+# include <stdbool.h>
 
 #define KEY_SA		1
 #define KEY_SB		2
@@ -39,17 +40,17 @@
 #define STR_RRB		"rrb"
 #define STR_RRR		"rr"
 
-int		ft_dosa(t_list **a);
-int		ft_dosb(t_list **b);
-int		ft_doss(t_list **a, t_list **b);
-int		ft_dopa(t_list **a, t_list **b);
-int		ft_dopb(t_list **a, t_list **b);
-int		ft_dora(t_list **a);
-int		ft_dorb(t_list **b);
-int		ft_dorr(t_list **a, t_list **b);
-int		ft_dorra(t_list **a);
-int		ft_dorrb(t_list **b);
-int		ft_dorrr(t_list **a, t_list **b);
+int		ft_dosa(t_list **a, t_list **b, bool print);
+int		ft_dosb(t_list **a, t_list **b, bool print);
+int		ft_doss(t_list **a, t_list **b, bool print);
+int		ft_dopa(t_list **a, t_list **b, bool print);
+int		ft_dopb(t_list **a, t_list **b, bool print);
+int		ft_dora(t_list **a, t_list **b, bool print);
+int		ft_dorb(t_list **a, t_list **b, bool print);
+int		ft_dorr(t_list **a, t_list **b, bool print);
+int		ft_dorra(t_list **a, t_list **b, bool print);
+int		ft_dorrb(t_list **a, t_list **b, bool print);
+int		ft_dorrr(t_list **a, t_list **b, bool print);
 t_list	*get_args(int argc, char **argv);
 void	ft_lstprint(t_list	*a, t_list *b);
 int		getcontent(t_list *list);
