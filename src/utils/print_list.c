@@ -28,6 +28,7 @@ void	ft_lstprint(t_list	*a, t_list *b)
 {
 	int	content_a;
 	int	content_b;
+	int pos;
 	int	i;
 
 	i = 0;
@@ -37,7 +38,10 @@ void	ft_lstprint(t_list	*a, t_list *b)
 	{
 		content_a = 0;
 		content_b = 0;
+		pos = 0;
 		if(a){
+			if(a->pos != 0)
+				pos = a->pos;
 			content_a = getcontent(a);
 			a = a->next;
 		}
@@ -45,7 +49,8 @@ void	ft_lstprint(t_list	*a, t_list *b)
 			content_b = getcontent(b);
 			b = b->next;
 		}
+
 		i++;
-		printf("%3i-> %d\t|\t%d\n",i, content_a, content_b);
+		printf("%3i-> %d\t|\t%d pos:%i\n",i, content_a, content_b, pos);
 	}
 }

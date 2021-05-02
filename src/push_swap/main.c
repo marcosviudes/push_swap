@@ -101,7 +101,7 @@ int	init_algorithm(t_all *all)
 		}
 	}
 	return(ret);
-	ft_lstprint(all->a, all->b);
+//	ft_lstprint(all->a, all->b);
 }
 void	get_data_algorithm(t_data *data, t_list *list)
 {
@@ -228,25 +228,117 @@ void	create_chunk(t_list **a, t_list **b, int chunks)
 	while (ft_lstsize(*b) - len_b <= (len_a / chunks))
 	{
 		if ((*a)->pos >= (len_a - (len_a / chunks)))
-			ft_dopb(b, a, 0);
+			ft_dopb(a, b, 1);
 		else
 		{
 			if (search_next_item(*a, len_a, (len_a / chunks)) == 0)
 			{
 				while ((*a)->pos < (len_a - (len_a / chunks)))
-					ft_dora(a,b, 0);
+					ft_dora(a,b, 1);
 			}
 			else
 				while ((*a)->pos < (len_a - (len_a / chunks)))
-					ft_dorra(a,b, 0);
+					ft_dorra(a, b, 1);
 		}
 	}
 }
 
+void set_int_arrtolst(t_list **list, int *arr, int size)
+{
+	int		i;
+	int		j; 
+	t_list *temp;
+
+	printf("\n");
+	
+	i = 1;
+	temp = *list;
+	while(temp != NULL){
+		j = 0;
+		while(j < size)
+		{
+			if((*(int*)temp->content) == arr[j])
+			{
+//				printf("%i ----- %i ---- %i", (*(int*)temp->content), arr[j], j);
+				temp->pos = j + 1;
+//				printf("\t---%i---n:%i\n", temp->pos, i);
+			}
+			j++;
+		}
+		temp = temp->next;
+		i++;
+	}
+//	
+}
+int	get_max_pos(t_list **stack)
+{
+	t_list	*aux;
+	int		max;
+
+	max = 0;
+	aux = *stack;
+	while (aux != NULL)
+	{
+		if (aux->pos > max)
+			max = aux->pos;
+		aux = aux->next;
+	}
+	return (max);
+}
+
+int	search_next_greater(t_list *st_b, int max)
+{
+	t_list	*aux;
+	int		pos;
+	int		len_b;
+
+	aux = st_b;
+	pos = 0;
+	len_b = ft_lstsize(st_b);
+	while (aux != NULL)
+	{
+		if (aux->pos == max)
+			if (pos > (len_b / 2))
+				return (1);
+		aux = aux->next;
+		pos++;
+	}
+	return (0);
+}
+
+void	return_greater_to_a(t_list **st_a, t_list **st_b)
+{
+	int	max;
+
+	while (ft_lstsize(*st_b) > 0)
+	{
+		max = get_max_pos(st_b);
+		if ((*st_b)->pos == max)
+			ft_dopa(st_a, st_b, 0);
+		else
+		{
+			if (search_next_greater(*st_b, max) == 1)
+			{
+				while ((*st_b)->pos != max)
+					ft_dorrb(st_a, st_b, 0);
+			}
+			else
+			{
+				while ((*st_b)->pos != max)
+					ft_dorb(st_a, st_b, 0);
+			}
+		}
+	}
+}
 void	solve_hundred_less(t_all *all)
 {
 	int	chunks;
+	int *arr;
 
+	arr = int_array(all->a);
+	order_int(arr, ft_lstsize(all->a));
+	set_int_arrtolst(&all->a, arr, ft_lstsize(all->a));
+//	ft_lstprint(all->a, 0);
 	while (ft_lstsize(all->a) >= 5)
 	{
 		if (ft_lstsize(all->a) >= 200)
@@ -255,13 +347,23 @@ void	solve_hundred_less(t_all *all)
 			chunks = 5;
 		create_chunk(&all->a, &all->b, chunks);
 	}
-	while (all->a->pos != 3)
-		ft_dora(&all->a, &all->b, 0);
-	ft_dopb(&all->a,  &all->b, 0);
+	while (all->a->next->pos != 3)
+		ft_dora(&all->a, &all->b, 1);
+	ft_dopb(&all->a,  &all->b, 1);
+	ft_lstprint(all->a, all->b);
+	getchar();
 	solve_three(all);
-	//return_greater_to_a(a, b);
-	while (!ft_issorted(all->a))
-		ft_dorra(&all->a,  &all->b, 0);
+	ft_lstprint(all->a, all->b);
+	getchar();
+	return_greater_to_a(&all->a, &all->b);
+	ft_dorra(&all->a,  &all->b, 1);
+	ft_dorra(&all->a,  &all->b, 1);
+	ft_dorra(&all->a,  &all->b, 1);
+	getchar();
+//		ft_lstprint(all->a, all->b);
+//		getchar();
+		//getchar();*/
+//	ft_lstprint(all->a, all->b);
 }
 /*
 void	solve_hundred_less(t_all *all)
@@ -389,13 +491,14 @@ int     main(int argc, char **argv)
 {
 	int		i;
 	t_all	all;
+
 	
 	if(argc < 2)
 		return(0);
 	all.a = get_args(argc,argv);
 	/*while (all.a)
 	{
-		printf("A[%i]: %i\n", i, *(int*)all.a->content);
+		printf("A[%i]: %i pos:%i\n", i, *(int*)all.a->content, all.a->pos);
 		all.a = all.a->next;
 	}*/
 	all.init_len = ft_lstsize(all.a);

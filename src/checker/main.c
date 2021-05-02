@@ -129,7 +129,7 @@ int		check_all(t_all *all)
 {
 	if(!do_instrucitons(all))
 		return(0);
-	ft_lstprint(all->a, all->b);
+//	ft_lstprint(all->a, all->b);
 	if(!ft_issorted(all->a))
 		return(0);
 	if(all->b->content)
@@ -169,7 +169,7 @@ int     main(int argc, char **argv)
 				exit_error();
 			i++;
 		}
-		ft_lstprint(all.a, all.b);
+//		ft_lstprint(all.a, all.b);
 		all.instructions_len = i;
 		if(!check_all(&all))
 		{
