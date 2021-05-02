@@ -13,7 +13,7 @@ LIBFT		= ./libft/libft.a
 
 
 CC 			= gcc  
-CFLAGS		= #-Wall -Wextra -Werror #-Wpedantic -O3
+CFLAGS		= -g3#-Wall -Wextra -Werror #-Wpedantic -O3
 DFLAGS		= -g -fsanitize=address
 
 RM			= rm -rf
