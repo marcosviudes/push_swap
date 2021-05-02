@@ -7,6 +7,9 @@
 # include "utils.h"
 # include "get_next_line.h"
 
+# define CHUNK_100	5
+# define CHUNK_200	11
+
 typedef struct s_min
 {
 	int		list_len;
