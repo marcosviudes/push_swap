@@ -3,6 +3,22 @@
 #include <libft.h>
 #include <limits.h>
 
+void	push_maxof3b(t_all *all)
+{
+	int		i;
+
+	i = ft_lstsize(all->a);
+	while(i --> 0)
+	{
+		if(all->a->pos > 3)
+		{
+			ft_dopb(&all->a, &all->b, 1);
+			return;
+		}
+		ft_dora(&all->a, &all->b, 1);
+	}
+}
+
 void	ft_doinstruction(int instruction, t_all *all){
 	if(instruction == KEY_SA)
 		ft_dosa(&all->a, &all->b, 1);
@@ -234,7 +250,7 @@ void	create_chunk(t_list **a, t_list **b, int chunks)
 			if (search_next_item(*a, len_a, (len_a / chunks)) == 0)
 			{
 				while ((*a)->pos < (len_a - (len_a / chunks)))
-					ft_dora(a,b, 1);
+					ft_dora(a, b, 1);
 			}
 			else
 				while ((*a)->pos < (len_a - (len_a / chunks)))
@@ -246,27 +262,22 @@ void	create_chunk(t_list **a, t_list **b, int chunks)
 void set_int_arrtolst(t_list **list, int *arr, int size)
 {
 	int		i;
-	int		j; 
 	t_list *temp;
 
-	printf("\n");
-	
-	i = 1;
 	temp = *list;
 	while(temp != NULL){
-		j = 0;
-		while(j < size)
+		i = 0;
+		while(i < size)
 		{
-			if((*(int*)temp->content) == arr[j])
+			if((*(int*)temp->content) == arr[i])
 			{
 //				printf("%i ----- %i ---- %i", (*(int*)temp->content), arr[j], j);
-				temp->pos = j + 1;
+				temp->pos = i + 1;
 //				printf("\t---%i---n:%i\n", temp->pos, i);
 			}
-			j++;
+			i++;
 		}
 		temp = temp->next;
-		i++;
 	}
 //	
 }
@@ -314,18 +325,18 @@ void	return_greater_to_a(t_list **st_a, t_list **st_b)
 	{
 		max = get_max_pos(st_b);
 		if ((*st_b)->pos == max)
-			ft_dopa(st_a, st_b, 0);
+			ft_dopa(st_a, st_b, 1);
 		else
 		{
 			if (search_next_greater(*st_b, max) == 1)
 			{
 				while ((*st_b)->pos != max)
-					ft_dorrb(st_a, st_b, 0);
+					ft_dorrb(st_a, st_b, 1);
 			}
 			else
 			{
 				while ((*st_b)->pos != max)
-					ft_dorb(st_a, st_b, 0);
+					ft_dorb(st_a, st_b, 1);
 			}
 		}
 	}
@@ -347,19 +358,27 @@ void	solve_hundred_less(t_all *all)
 			chunks = 5;
 		create_chunk(&all->a, &all->b, chunks);
 	}
-	while (all->a->next->pos != 3)
+	/*ft_lstprint(all->a, all->b);
+	getchar();
+	while (all->a->pos != 3)
 		ft_dora(&all->a, &all->b, 1);
+	ft_dora(&all->a, &all->b, 1);
 	ft_dopb(&all->a,  &all->b, 1);
-	ft_lstprint(all->a, all->b);
-	getchar();
+	*/
+//	ft_lstprint(all->a, all->b);
+//	getchar();
+	push_maxof3b(all);
+//	ft_lstprint(all->a, all->b);
+//	getchar();
 	solve_three(all);
-	ft_lstprint(all->a, all->b);
-	getchar();
+//	ft_lstprint(all->a, all->b);
+//	getchar();
 	return_greater_to_a(&all->a, &all->b);
 	ft_dorra(&all->a,  &all->b, 1);
 	ft_dorra(&all->a,  &all->b, 1);
 	ft_dorra(&all->a,  &all->b, 1);
-	getchar();
+//	ft_lstprint(all->a, all->b);
+	//getchar();
 //		ft_lstprint(all->a, all->b);
 //		getchar();
 		//getchar();*/
@@ -386,6 +405,9 @@ void	push_minb(t_all *all)
 		ft_dora(&all->a, &all->b, 1);
 	}
 }
+
+
+
 void	push_minmaxb(t_all *all)
 {
 	int		i;
@@ -481,7 +503,7 @@ void	sort_algorithm(t_all *all)
 			solve_three(all);
 		else if(all->init_len <= 5)
 			solve_five_less(all);
-		else if(all->init_len <= 100)
+		else //if(all->init_len <= 100)
 			solve_hundred_less(all);
 	}
 }

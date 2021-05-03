@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 19:46:54 by mviudes           #+#    #+#             */
-/*   Updated: 2021/03/29 11:11:54 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/05/03 13:51:08 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	ft_lstprint(t_list	*a, t_list *b)
 	printf("\n");
 	while(a != NULL || b != NULL)
 	{
-		content_a = 0;
-		content_b = 0;
+		content_a = -1;
+		content_b = -1;
 		pos = 0;
 		if(a){
 			if(a->pos != 0)

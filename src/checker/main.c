@@ -121,6 +121,7 @@ int		do_instrucitons(t_all *all)
 			return (1);
 		if(ret == 0)
 			return(0);
+//		ft_lstprint(all->a, all->b);
 		i++;
 	}
 	return(1);
@@ -157,7 +158,8 @@ int     main(int argc, char **argv)
 		all.a = get_args(argc, argv);
 		all.first_a = all.a;
 		all.b = ft_calloc(sizeof(t_list), 1);
-		if(!all.a)
+		//all.b = NULL;
+		if(!all.a || !all.a->next)
 			exit_error();
 		i = 0;
 		while(get_next_line(STDIN_FILENO, &buff) > 0)
@@ -180,6 +182,6 @@ int     main(int argc, char **argv)
 		printf(OK);
 	}
 	ft_lstprint(all.a, all.b);
-	getchar();
+//	getchar();
 	return (0);
 }
