@@ -5,7 +5,7 @@ int	ft_lstrevrot(t_list **list)
 	t_list *last2;
 	t_list	*last;
 
-	if(list != NULL || *list != NULL)
+	if (list != NULL || *list != NULL)
 	{
 		last = ft_lstlast(*list);
 		last= ft_lstnew(last->content);
@@ -14,9 +14,9 @@ int	ft_lstrevrot(t_list **list)
 		return(1);
 	}*//*
 	last = *list;
-	if(list != NULL || *list != NULL)
+	if (list != NULL || *list != NULL)
 	{
-		while(last->next != NULL)
+		while (last->next != NULL)
 		{
 			last2 = last;
 			last= last->next;
@@ -30,14 +30,14 @@ int ft_lstrevrot (t_list **list)
 {
 	t_list *last = NULL, *temp = NULL;
 
-	if(list == NULL || *list == NULL || (*list)->next == NULL)
+	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return(0);
 
 	last = *list;
 	temp = last->next;
 
 	/*Going to the last node*/
-	while(temp->next)
+	while (temp->next)
 	{
 	last = last->next;
 	temp = temp->next;

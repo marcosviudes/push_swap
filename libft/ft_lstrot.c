@@ -5,11 +5,11 @@ void ft_lstrot(t_list **list)
 	t_list	*last;
 	t_list	*first;
 
-	if(!list || !*list ||(*list)->next == NULL)
+	if (!list || !*list ||(*list)->next == NULL)
 		return;
 	last = *list;
 	first = *list;
-	while(last->next->next != NULL)
+	while (last->next->next != NULL)
 		last = last->next;
 	*list = (*list)->next;
 	first->next = NULL;
@@ -37,7 +37,7 @@ void ft_lstdelfirst(t_list **list)
 {
 	t_list *temp;
 
-	if((*list) != NULL)
+	if ((*list) != NULL)
     {
         if ((*list)->content)
         {

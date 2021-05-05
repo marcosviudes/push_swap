@@ -5,9 +5,9 @@ void ft_lstdellast(t_list **list)
     t_list *temp;
     
     temp = *list;
-    if((*list) == NULL)
+    if ((*list) == NULL)
         return;
-    if((*list)->next == NULL)
+    if ((*list)->next == NULL)
     {
         free(list);
         list = NULL;

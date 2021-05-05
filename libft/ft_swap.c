@@ -25,7 +25,7 @@ int		ft_lstswap(t_list *a, t_list *b)
 {
 	t_list *temp;
 
-	if(a == NULL || a->next == NULL)
+	if (a == NULL || a->next == NULL)
 		return(0);
 	temp = a;
 	a = b;
@@ -41,7 +41,7 @@ void ft_lstnswap(t_list *lst, int first, int second)
 	second = 0;
 	second++;
 	i = 0;
-	while(lst != NULL)
+	while (lst != NULL)
 	{
 		lst = lst->next;
 		i++;

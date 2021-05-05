@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mviudes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 05:33:01 by mviudes           #+#    #+#             */
-/*   Updated: 2019/12/07 05:53:34 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/05/05 16:26:39 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
+	(void)lst;
+	(void)f;
+	(void)del;
+	
+	/*
 	t_list	*mapped;
 	t_list	*tmp;
 
@@ -30,5 +35,6 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		ft_lstadd_back(&mapped, tmp);
 		lst = lst->next;
 	}
-	return (mapped);
+	return (mapped);*/
+	return(0);
 }
