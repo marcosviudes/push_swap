@@ -18,7 +18,7 @@ typedef struct s_all{
 	t_list		*first_b;
 	int			*used;
 	int			init_len;
-	int			*instrucitons;
+	t_list		*instrucitons;
 	int			instructions_len;
 	
 }				t_all;

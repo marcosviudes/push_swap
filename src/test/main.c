@@ -37,15 +37,15 @@ void	ft_lstprint(t_list	*a, t_list *b)
 	i = 0;
 	printf("_________________");
 	printf("\n");
-	while(a != NULL || b != NULL)
+	while (a != NULL || b != NULL)
 	{
 		content_a = 0;
 		content_b = 0;
-		if(a){
+		if (a){
 			content_a = getcontent(a);
 			a = a->next;
 		}
-		if(b){
+		if (b){
 			content_b = getcontent(b);
 			b = b->next;
 		}
@@ -70,8 +70,8 @@ int		main(int argc, char **argv)
 	content = malloc(sizeof(int*) * argc);
 	content2 = malloc(sizeof(int*) * argc);
 	i = 1;
-	if(argc != 1){
-		while(i < argc){
+	if (argc != 1){
+		while (i < argc){
 				content[i]= ft_atoi(argv[i]);
 				content2[i]= (ft_atoi(argv[i])) + 10 ;
 				temp = ft_lstnew(&content[i]);
@@ -92,7 +92,7 @@ int		main(int argc, char **argv)
 	ft_lstprint(a, b);
 
 	i = 0;
-	while(a != NULL)
+	while (a != NULL)
 	{
 		printf("%i-> %d  ",i, ft_ptoint(a->content));
 		a = a->next;

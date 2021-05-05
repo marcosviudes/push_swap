@@ -6,50 +6,51 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 20:35:16 by mviudes           #+#    #+#             */
-/*   Updated: 2021/04/12 18:36:32 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/05/05 18:08:27 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 #include <limits.h>
 
-int ft_ptoint(int *p)
+int	ft_ptoint(int *p)
 {
-	long int n;
+	long int	n;
+
 	n = *p;
-	return(n);
+	return (n);
 }
 
-int		ft_issorted(t_list *lst)
+int	ft_issorted(t_list *lst)
 {
 	int		number;
 	int		last_num;
 
 	last_num = INT_MIN;
-	while(lst != NULL && *(int*)lst->content)
+	while (lst != NULL && *(int *)lst->content)
 	{
-		number = *(int*)lst->content;
-		if(number <= last_num)
-			return(0);
+		number = *(int *)lst->content;
+		if (number <= last_num)
+			return (0);
 		last_num = number;
 		lst = lst->next;
 	}
-	return(1);
+	return (1);
 }
 
-int		ft_isreversed(t_list *lst)
+int	ft_isreversed(t_list *lst)
 {
 	int		number;
 	int		last_num;
 
 	last_num = INT_MAX;
-	while(lst != NULL)
+	while (lst != NULL)
 	{
 		number = ft_ptoint(lst->content);
-		if(number >= last_num)
-			return(0);
+		if (number >= last_num)
+			return (0);
 		last_num = number;
 		lst = lst->next;
 	}
-	return(1);
+	return (1);
 }

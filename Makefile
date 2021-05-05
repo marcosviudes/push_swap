@@ -1,7 +1,7 @@
 #####################################
 ### CONFIG
 #####################################
-.DELETE_ON_ERROR:
+#.DELETE_ON_ERROR:
 
 CHECKER		= checker
 SWAP		= push_swap
@@ -13,7 +13,7 @@ LIBFT		= ./libft/libft.a
 
 
 CC 			= gcc  
-CFLAGS		= -g3#-Wall -Wextra -Werror #-Wpedantic -O3
+CFLAGS		= -g3 -Wall -Wextra -Werror -Wpedantic -O3
 DFLAGS		= -g -fsanitize=address
 
 RM			= rm -rf
@@ -26,7 +26,12 @@ UTILS_DIR	= $(SRC_DIR)/utils/
 
 CHECKER_SRC	=	main.c\
 				get_next_line.c
-SWAP_SRC	=	main.c
+SWAP_SRC	=	main.c\
+				sort_algorithm.c\
+				sort_chunk_utils.c\
+				sort_chunk.c\
+				sort_three.c\
+				utils.c
 TEST_SRC	=	$(SRC_DIR)/test/main.c
 UTILS_SRC	=	ft_dopa.c\
 				ft_dopb.c\
@@ -63,10 +68,10 @@ all: $(CHECKER) $(SWAP)
 	$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $^
 $(LIBFT):
 	@make -C libft
-$(CHECKER): $(OBJS) $(LIBFT) ./includes/checker.h
+$(CHECKER):  $(CHECKER_O) $(UTILS_O) ./includes/checker.h
 	$(CC) $(CFLAGS) $(INCLUDES) $(UTILS_O) $(CHECKER_O) $(LIBFT) -o $(CHECKER)
 
-$(SWAP): $(LIBFT) $(OBJS) ./includes/push_swap.h
+$(SWAP): $(LIBFT) $(SWAP_O) $(UTILS_O) ./includes/push_swap.h
 	$(CC) $(CFLAGS) $(INCLUDES) $(SWAP_O) $(UTILS_O) $(LIBFT) -o $(SWAP)
 
 $(TEST): $(OBJS) $(LIBFT)
