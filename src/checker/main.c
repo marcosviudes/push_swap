@@ -125,10 +125,7 @@ int		check_all(t_all *all)
 		return(0);
 	return(1);
 }
-void	free_all(t_all *all)
-{
-	return;
-}
+
 void	newinstruction(t_list **list, int instruciton)
 {
 	

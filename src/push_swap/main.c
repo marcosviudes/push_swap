@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 17:29:27 by mviudes           #+#    #+#             */
-/*   Updated: 2021/05/05 17:29:27 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/05/05 19:38:53 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 	all.instruction = malloc(sizeof(int) * (argc - 1));
 	get_data_algorithm((all).adata, (all).a);
 	sort_algorithm(&all);
-	ft_lstprint(all.a, all.b);
+//	ft_lstprint(all.a, all.b);
 	free_list(all.a);
 	return (0);
 }

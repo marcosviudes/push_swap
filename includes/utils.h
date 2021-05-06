@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 12:29:54 by mviudes           #+#    #+#             */
-/*   Updated: 2021/05/05 17:58:28 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/05/06 12:07:03 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 #define STR_RR		"rr"
 #define STR_RRA		"rra"
 #define STR_RRB		"rrb"
-#define STR_RRR		"rr"
+#define STR_RRR		"rrr"
 
 int		ft_dosa(t_list **a, t_list **b, bool print);
 int		ft_dosb(t_list **a, t_list **b, bool print);
