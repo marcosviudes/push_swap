@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 12:29:54 by mviudes           #+#    #+#             */
-/*   Updated: 2021/05/06 12:07:03 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/05/07 20:06:32 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@
 #define STR_RRB		"rrb"
 #define STR_RRR		"rrr"
 
+#define ERROR	"Error"
+
 int		ft_dosa(t_list **a, t_list **b, bool print);
 int		ft_dosb(t_list **a, t_list **b, bool print);
 int		ft_doss(t_list **a, t_list **b, bool print);
@@ -57,4 +59,5 @@ int		getcontent(t_list *list);
 int		ft_issorted(t_list *lst);
 int		ft_isreversed(t_list *lst);
 int		ft_ptoint(int *p);
+void	exit_error();
 #endif

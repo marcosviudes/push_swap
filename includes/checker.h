@@ -7,9 +7,9 @@
 # include "get_next_line.h"
 # include "utils.h"
 
-#define OK		"\x1b[32mOK"
-#define KO		"\x1b[31mKO"
-#define ERROR	"\x1b[31mERROR"
+#define OK		"OK"
+#define KO		"KO"
+
 
 typedef struct s_all{
 	t_list      *a;

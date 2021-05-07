@@ -31,6 +31,8 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	all.a = get_args(argc, argv);
+	if(!all.a)
+		exit_error();
 	all.init_len = ft_lstsize(all.a);
 	all.b = NULL;
 	all.adata = ft_calloc(1, sizeof(t_data));
@@ -40,7 +42,6 @@ int	main(int argc, char **argv)
 	all.instruction = malloc(sizeof(int) * (argc - 1));
 	get_data_algorithm((all).adata, (all).a);
 	sort_algorithm(&all);
-//	ft_lstprint(all.a, all.b);
 	free_list(all.a);
 	return (0);
 }

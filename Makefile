@@ -46,7 +46,8 @@ UTILS_SRC	=	ft_dopa.c\
 				ft_doss.c\
 				get_args.c\
 				print_list.c\
-				ft_issorted.c
+				ft_issorted.c\
+				exit.c
 CHECKER_F 	= $(addprefix $(CHECKER_DIR), $(CHECKER_SRC))
 SWAP_F		= $(addprefix $(SWAP_DIR), $(SWAP_SRC))
 UTILS_F		= $(addprefix $(UTILS_DIR), $(UTILS_SRC))

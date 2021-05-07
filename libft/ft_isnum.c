@@ -7,7 +7,9 @@ int     ft_isnum(char *string)
 	i = 0;
 	while (string[i] != '\0')
 	{
-		if (!ft_isdigit(string[i]) || string[i] == '-')
+		if(string[i] == '-')
+			i++;
+		if (!ft_isdigit(string[i]) )
 			return(0);
 		i++;
 	}

@@ -42,11 +42,6 @@ int		valid_instruction(char *line)
 		return(0);
 	return(-1);
 }
-void	exit_error()
-{
-	printf(ERROR);
-	exit(EXIT_FAILURE);
-}
 
 int			check_duplicate(int	*numbers, int size)
 {
@@ -143,6 +138,8 @@ int     main(int argc, char **argv)
 	{
 		all.instrucitons = ft_lstnew(NULL);
 		all.a = get_args(argc, argv);
+		if(!all.a)
+			exit()
 		all.b = NULL;
 		if (!all.a)
 			exit_error();
