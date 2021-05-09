@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 19:42:25 by mviudes           #+#    #+#             */
-/*   Updated: 2021/05/05 16:22:49 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/05/09 13:06:43 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	int				pos;
@@ -47,7 +47,7 @@ size_t				ft_strlen(const char *str);
 size_t				ft_strnlen(const char *s, size_t maxlen);
 int					ft_strncmp(const char *str1, const char *str2, size_t n);
 char				*ft_strnstr(const char *haystack, const char *needle,
-					size_t len);
+						size_t len);
 char				*ft_strrchr(const char *str, int c);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
@@ -61,7 +61,6 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd (int n, int fd);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-//t_list				*ft_lstnew(void const *content);
 t_list				*ft_lstnew(int content);
 t_list				*ft_lstlast(t_list *lst);
 void				ft_lstadd_front(t_list **alst, t_list *new);
@@ -70,8 +69,6 @@ void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstdelone(t_list *lst, void (*del)(void*));
 void				ft_lstclear(t_list **lst, void(*del)(void*));
 void				ft_lstiter(t_list *lst, void (*f)(void*));
-//t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
-//					void (*del)(void *));
 int					ft_isnum(char *string);
 char				*ft_strcdup(const char *src, int c);
 int					ft_lstswap(t_list *lst_a, t_list *lst_b);
@@ -83,5 +80,5 @@ void				ft_lstdelfirst(t_list **list);
 void				ft_lstrot(t_list **list);
 int					ft_lstrevrot(t_list **list);
 void				ft_lstdellast(t_list **list);
-void				ft_swap(int* src, int* dest);
+void				ft_swap(int *src, int *dest);
 #endif

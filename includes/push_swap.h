@@ -34,7 +34,6 @@ typedef struct s_all{
 	t_data	*bdata;
 	int		*arr;
 	int		init_len;
-	int		i;
 	int		*instruction;
 
 }				t_all;

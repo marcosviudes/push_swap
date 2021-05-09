@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mviudes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 13:53:56 by mviudes           #+#    #+#             */
-/*   Updated: 2019/11/11 13:55:07 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/05/09 13:41:28 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 
-void		*ft_memset(void *str, int c, size_t n)
+void	*ft_memset(void *str, int c, size_t n)
 {
 	char	*a;
 	size_t	i;

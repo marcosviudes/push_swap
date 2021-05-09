@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mviudes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 13:56:41 by mviudes           #+#    #+#             */
-/*   Updated: 2019/11/11 13:58:19 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/05/09 13:43:18 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 
-void			*ft_memcpy(void *str1, const void *str2, size_t n)
+void	*ft_memcpy(void *str1, const void *str2, size_t n)
 {
 	const char	*src;
 	char		*dest;

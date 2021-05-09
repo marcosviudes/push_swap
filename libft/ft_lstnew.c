@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mviudes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/15 21:11:04 by mviudes           #+#    #+#             */
-/*   Updated: 2019/11/15 23:04:58 by mviudes          ###   ########.fr       */
+/*   Created: 2019/12/06 14:42:41 by mviudes           #+#    #+#             */
+/*   Updated: 2021/05/09 13:47:19 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int c)
+t_list	*ft_lstnew(int content)
 {
-	int	i;
+	t_list	*new;
+	int		*temp;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	while (i >= 0)
-	{
-		if (str[i] == c)
-			return ((char *)&str[i]);
-		i--;
-	}
-	return (0);
+	new = calloc(sizeof(t_list), 1);
+	if (!new)
+		return (NULL);
+	temp = malloc(sizeof(int));
+	(*temp) = content;
+	new->content = temp;
+	new->next = NULL;
+	return (new);
 }

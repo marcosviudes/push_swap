@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mviudes <mviudes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 18:20:50 by mviudes           #+#    #+#             */
-/*   Updated: 2019/11/15 19:18:13 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/05/09 13:05:00 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int				ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	long long int i;
-	long long int neg;
-	long long int r;
+	long long int	i;
+	long long int	neg;
+	long long int	r;
 
 	i = 0;
 	neg = 1;

@@ -13,8 +13,7 @@ LIBFT		= ./libft/libft.a
 
 
 CC 			= gcc  
-CFLAGS		= -g3 -Wall -Wextra -Werror # -Wpedantic -O3
-DFLAGS		= -g -fsanitize=address
+CFLAGS		= -Wall -Wextra -Werror -g3
 
 RM			= rm -rf
 MKDIR		= mkdir -p
@@ -25,6 +24,7 @@ SWAP_DIR	= $(SRC_DIR)/push_swap/
 UTILS_DIR	= $(SRC_DIR)/utils/
 
 CHECKER_SRC	=	main.c\
+				instructions.c\
 				get_next_line.c
 SWAP_SRC	=	main.c\
 				sort_algorithm.c\
@@ -45,7 +45,6 @@ UTILS_SRC	=	ft_dopa.c\
 				ft_dosb.c\
 				ft_doss.c\
 				get_args.c\
-				print_list.c\
 				ft_issorted.c\
 				exit.c
 CHECKER_F 	= $(addprefix $(CHECKER_DIR), $(CHECKER_SRC))
@@ -57,7 +56,7 @@ SWAP_O		= $(SWAP_F:%.c=%.o)
 UTILS_O		= $(UTILS_F:%.c=%.o)
 OBJS 		= $(CHECKER_O) $(SWAP_O) $(UTILS_O)
 
-INCLUDES 	= -I ./includes -I./libft/
+INCLUDES 	= -I ./includes -I ./libft
 
 #####################################
 ### RULES
@@ -69,7 +68,7 @@ all: $(CHECKER) $(SWAP)
 	$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $^
 $(LIBFT):
 	@make -C libft
-$(CHECKER):  $(CHECKER_O) $(UTILS_O) ./includes/checker.h
+$(CHECKER): $(LIBFT)  $(CHECKER_O) $(UTILS_O) ./includes/checker.h
 	$(CC) $(CFLAGS) $(INCLUDES) $(UTILS_O) $(CHECKER_O) $(LIBFT) -o $(CHECKER)
 
 $(SWAP): $(LIBFT) $(SWAP_O) $(UTILS_O) ./includes/push_swap.h
@@ -81,9 +80,11 @@ $(TEST): $(OBJS) $(LIBFT)
 .PHONY:	all clean fclean re retest debug normi
 
 normi: fclean
+	@clear
 	norminette src/*
 	norminette includes/*
-	norminette libft/*.c libft/*.h
+	norminette libft/*.c
+	norminette libft/*.h
 
 clean:
 	make -C $(LIBFT_DIR) clean
@@ -96,6 +97,3 @@ re: fclean all
 retest:
 	$(RM) test
 	make test
-
-debug: fclean
-	make re CFLAGS="$(DFLAGS)"

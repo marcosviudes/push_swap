@@ -6,31 +6,31 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 19:42:19 by mviudes           #+#    #+#             */
-/*   Updated: 2021/05/07 21:44:05 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/05/09 14:21:51 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <utils.h>
 #include <limits.h>
 
-int		are_duplicates_num(t_list *list)
+int	are_duplicates_num(t_list *list)
 {
 	int		num;
 	t_list	*temp;
 
-	while(list != NULL)
+	while (list != NULL)
 	{
 		temp = list->next;
-		num = *(int*)list->content;
-		while(temp != NULL)
+		num = *(int *)list->content;
+		while (temp != NULL)
 		{
-			if (num == *(int*)temp->content)
-				return(true);
+			if (num == *(int *)temp->content)
+				return (true);
 			temp = temp->next;
 		}
 		list = list->next;
 	}
-	return(false);
+	return (false);
 }
 
 static long long int	ft_atol(const char *str)
@@ -112,7 +112,7 @@ t_list	*get_args(int argc, char **argv)
 		spline = ft_split(argv[1], ' ');
 		ret = get_multiple_strings(spline);
 	}
-	if(are_duplicates_num(ret))
+	if (are_duplicates_num(ret))
 		ret = NULL;
 	return (ret);
 }
