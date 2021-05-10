@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 12:29:54 by mviudes           #+#    #+#             */
-/*   Updated: 2021/05/09 14:05:44 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/05/09 19:02:52 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@
 # define STR_RRR		"rrr"
 
 # define ERROR	"Error"
+# define LEN_INT_MAX	12
 
 t_list	*get_args(int argc, char **argv);
 void	ft_lstprint(t_list	*a, t_list *b);

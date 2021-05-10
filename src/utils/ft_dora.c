@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 13:21:04 by mviudes           #+#    #+#             */
-/*   Updated: 2021/05/05 18:03:32 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/05/09 18:58:52 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 int	ft_dora(t_list **a, t_list **b, bool print)
 {
 	(void)b;
-	if (a == NULL || *a == NULL)
-		return (0);
 	ft_lstrot(a);
 	if (print == true)
 		ft_putendl_fd(STR_RA, 1);

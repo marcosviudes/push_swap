@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 19:42:19 by mviudes           #+#    #+#             */
-/*   Updated: 2021/05/09 14:21:51 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/05/09 19:08:42 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ t_list	*get_multiple_strings(char **spline)
 	ret = NULL;
 	while (spline[i])
 	{
+		if (ft_strlen(spline[i]) > LEN_INT_MAX)
+			return (NULL);
 		if (!ft_isnum(spline[i]))
 			return (NULL);
 		value = ft_atoi(spline[i]);
@@ -88,6 +90,8 @@ t_list	*fill_list(int argc, char **argv)
 
 	while (--argc > 0)
 	{
+		if (ft_strlen(argv[argc]) > LEN_INT_MAX)
+			return (NULL);
 		if (!ft_isnum(argv[argc]))
 			return (NULL);
 		value = ft_atol(argv[argc]);

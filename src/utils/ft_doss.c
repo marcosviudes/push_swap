@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 12:52:15 by mviudes           #+#    #+#             */
-/*   Updated: 2021/05/05 18:10:53 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/05/09 18:47:57 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	ft_doss(t_list **a, t_list **b, bool print)
 {
-	if (a == NULL || !(*a)->next || b == NULL || !(*b)->next)
-		return (0);
 	ft_dosa(a, b, print);
 	ft_dosb(b, b, print);
 	if (print == true)

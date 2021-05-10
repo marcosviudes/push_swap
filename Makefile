@@ -88,7 +88,7 @@ normi: fclean
 
 clean:
 	make -C $(LIBFT_DIR) clean
-	$(RM) $(NAME) $(OBJS)
+	$(RM) $(OBJS)
 
 fclean: clean
 	@make -C $(LIBFT_DIR) fclean

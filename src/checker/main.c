@@ -6,7 +6,7 @@
 /*   By: mviudes <mviudes@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 13:21:15 by mviudes           #+#    #+#             */
-/*   Updated: 2021/05/09 17:10:03 by mviudes          ###   ########.fr       */
+/*   Updated: 2021/05/09 19:04:07 by mviudes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ int	do_instrucitons(t_all *all)
 		ret = do_the_instructions(&all->a,
 				&all->b,
 				instructions->pos);
-		if (!ret)
-			return (0);
 		instructions = instructions->next;
 	}
 	return (1);
